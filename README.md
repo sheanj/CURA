@@ -52,6 +52,8 @@ The CURA MVP will include a functioning server with SQL tables for Users, User P
 |      Axios       | _Handle and execute database queries._ |
 |  Ruby on Rails   | _Development of backend/server functionality._ |
 |     Bcrypt, JWT  | _Handling user authentication._ |
+|     LinkPreview API  | _Rendering Link metadata to User Timeline._ |
+
 
 
 <br>
