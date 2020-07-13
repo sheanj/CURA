@@ -1,0 +1,2 @@
+class TextpostController < ApplicationController
+end
