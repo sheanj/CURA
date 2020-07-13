@@ -114,7 +114,7 @@ The CURA MVP will include a functioning server with SQL tables for Users, User P
 
 #### Component Tree
 
-![Dummy Link](client/src/Assets/App_Hierarchy.png)
+![Dummy Link](./client/src/Assets/Logo/App_Hierarchy.png)
 
 #### Component Hierarchy
 
