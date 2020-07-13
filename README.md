@@ -1,4 +1,4 @@
-![Dummy Link](./client/src/Assets/LogoMedium.png)
+![Dummy Link](./client/src/Assets/Logo/LogoMedium.png)
 ***
 
 - [Overview](#overview)
