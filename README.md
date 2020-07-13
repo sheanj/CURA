@@ -62,15 +62,15 @@ The CURA MVP will include a functioning server with SQL tables for Users, User P
 
 - Desktop Landing
 
-![Dummy Link](client/src/Assets/Wireframes/DesktopLandingPage.png)
+![Dummy Link](./client/src/Assets/Wireframes/Desktop/DesktopLandingPage.png)
 
 - Login PopOver
 
-![Dummy Link](client/src/Assets/Wireframes/LoginPopOver.png)
+![Dummy Link](./client/src/Assets/Wireframes/Desktop/LoginPopOver.png)
 
 - UserTimeline
 
-![Dummy Link](client/src/Assets/Wireframes/UserTimeLine.png)
+![Dummy Link](./client/src/Assets/Wireframes/Desktop/UserTimeLine.png)
 
 
 
@@ -195,7 +195,7 @@ src
 
 #### ERD Model
 
-![Dummy Link](./client/src/Assets/ERD.png)
+![Dummy Link](./client/src/Assets/Logo/ERD.png)
 
 <br>
 
