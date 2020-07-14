@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      @token = encode({user_id: @user.id, username: @user.username})
       render json: @user, status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity

@@ -5,32 +5,44 @@ import Header from '../Header/Header';
 import LoginPopUp from '../Login/LoginPopUp';
 import UserRegisterPopUp from '../Login/UserRegisterPopUp';
 import TextInput from '../TimeLine/InputForms/TextInput'
+import Landing from '../Landing/Landing'
+import UserTimeLine from '../TimeLine/UserTimeLine/UserTimeLine';
 
 
 
 
 export default class Main extends Component {
   render() {
-    const { handleLogin, handleRegister } = this.props;
+    const { handleLogin, handleRegister, handleLogout } = this.props;
     return (
       <div>
-        <Header />
-        <Route path='/' render={(props) => (
+        <Header
+          handleLogout={handleLogout}
+        />
+        <Route path='/login' render={(props) => (
           <LoginPopUp
             {...props}
             handleLogin={handleLogin}
           />
           )}
         />
-        <Route path='/' render={(props) => (
+        <Route exact path='/register'  render={(props) => (
           <UserRegisterPopUp
             {...props}
             handleRegister={handleRegister}
           />
         )} 
         />
-        <Route path='/test' exact render={(props) => (
+        <Route exact path='/test'  render={(props) => (
           <TextInput />
+        )} 
+        />
+        <Route exact path='/'  render={(props) => (
+          <Landing />
+        )} 
+        />
+        <Route exact path='/timeline'  render={(props) => (
+          <UserTimeLine />
         )} 
         />
       </div>

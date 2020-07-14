@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './LoginPopUp.css'
 
 
 export default class LoginPopUp extends Component {
@@ -12,22 +13,22 @@ export default class LoginPopUp extends Component {
     this.setState({ [name]: value });
   }
 
-  handleSubmit = (e) => {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value
-    })
-  }
+  // handleLogin = (e) => {
+  //   const { name, value } = e.target;
+  //   this.setState({
+  //     [name]: value
+  //   })
+  // }
 
   render() {
     const { username, password } = this.state;
     const { handleLogin, history } = this.props;
     return (
-      <div>
+      <div className="login">
         <form onSubmit={(e) => {
           e.preventDefault();
           handleLogin(this.state);
-          history.push('/')
+          history.push('/timeline')
         }}>
           <h1>Welcome Back!</h1>
           <input 

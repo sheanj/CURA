@@ -52,7 +52,9 @@ class App extends Component {
           loggedUser={this.state.loggedUser}
           handleLogin={this.handleLogin}
           handleRegister={this.handleRegister}
+          handleLogout={this.handleLogout}
         />
+        
       </div>
     )
   }

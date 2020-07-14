@@ -20,15 +20,15 @@ export default class UserRegisterPopUp extends Component {
     const { name, username, phone_number, email, password } = this.state;
     const { handleRegister, history } = this.props;
     return (
-      <div>
-        <h1>Register</h1>
+      <div className="register">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             handleRegister(this.state);
             history.push("/");
           }}
-        >
+          >
+          <h1>Register</h1>
           <input
             type="text"
             placeholder="What's your name?"
