@@ -10,7 +10,8 @@ import Main from './Components/Main/Main';
 
 class App extends Component {
   state = {
-    loggedUser: null
+    loggedUser: null,
+    username: ''
   }
 
   componentDidMount() {

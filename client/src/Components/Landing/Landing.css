@@ -14,8 +14,8 @@
 
 .preview {
   border-radius: 20px;
-  background-color: rgba(222, 228, 228, 0.9);
-  backdrop-filter: blur(3px);
+  background-color: rgba(222, 228, 228, 0.7);
+  backdrop-filter: blur(5px);
   background-image: radial-gradient(red 0%, green 0%, blue 20%, .8);
   box-shadow: 0px 0px 15px #888888;
 }

@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import LoginPopUp from '../Login/LoginPopUp';
 import UserRegisterPopUp from '../Login/UserRegisterPopUp';
-import TextInput from '../TimeLine/InputForms/TextInput'
+import TextInput from '../TimeLine/TextInput/TextInput'
 import Landing from '../Landing/Landing'
 import UserTimeLine from '../TimeLine/UserTimeLine/UserTimeLine';
 
@@ -17,10 +17,12 @@ export default class Main extends Component {
     return (
       <div>
         <Header
+          {...this.props}
           handleLogout={handleLogout}
         />
         <Route path='/login' render={(props) => (
           <LoginPopUp
+            {...this.props}
             {...props}
             handleLogin={handleLogin}
           />
@@ -28,6 +30,7 @@ export default class Main extends Component {
         />
         <Route exact path='/register'  render={(props) => (
           <UserRegisterPopUp
+            {...this.props}
             {...props}
             handleRegister={handleRegister}
           />
@@ -42,7 +45,10 @@ export default class Main extends Component {
         )} 
         />
         <Route exact path='/timeline'  render={(props) => (
-          <UserTimeLine />
+          <UserTimeLine
+            {...this.props}
+            {...props}
+          />
         )} 
         />
       </div>

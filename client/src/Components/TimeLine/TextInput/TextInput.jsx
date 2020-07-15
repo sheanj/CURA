@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import './TextInput.css'
+import '../TextInput/TextInput.css'
 
 export default class TextPost extends Component {
   render() {
     return (
-      <div className='textPost'>
+      <div className='textInput'>
         <h6>Add a new Note</h6>
         <input 
           placeholder="Title"
         />
-        <div className="note">
+        <div className="noteInput">
         <input 
           placeholder="New Note..."
           />

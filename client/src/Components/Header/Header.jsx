@@ -10,9 +10,13 @@ export default class Header extends Component {
       <header>
         <Link to='/'><img src={Logo} /></Link>
         {this.props.loggedUser ?
-          <button onClick={this.props.handleLogout}>LOGOUT</button> :
-          <><Link to='/login'><button>Log In</button></Link> 
-          <Link to='/register'><button>Register</button></Link> </>}
+          <button onClick={this.props.handleLogout}>LOGOUT</button>
+          :
+          <>
+            <Link to='/login'><button>Log In</button></Link> 
+            <Link to='/register'><button>Register</button></Link>
+          </>
+        }
       </header>
     )
   }
