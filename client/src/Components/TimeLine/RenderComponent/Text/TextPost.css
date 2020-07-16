@@ -3,14 +3,22 @@
   flex-direction: column;
   border-radius: 10px;
   border-top: .2px solid grey;
-  width: 95%;
+  width: 93%;
   height: fit-content;
   justify-content: space-evenly;
-  margin-left: 4%;
+  margin-left: 20px;
   margin-bottom: 25px;
   box-shadow: 0px 10px 10px #888888;
   background-color: rgba(204, 211, 211, 0.153);
   backdrop-filter: blur(5px);
+}
+
+.textPost img {
+  position: fixed;
+  left: -45px;
+  bottom: 84%;
+  height: auto;
+  width: 60px;
 }
 
 .linkDot {
@@ -39,7 +47,7 @@
   padding: 2px;
 }
 
-/* .linkPost img {
+.linkPost img {
   align-self: flex-end;
   border: 1px solid black;
   width: 93%;
@@ -48,7 +56,7 @@
   object-fit: cover;
   border-radius: 20px;
   margin-top: 0;
-} */
+}
 
 .note {
   height: fit-content;

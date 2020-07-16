@@ -9,32 +9,49 @@ export default class TextPost extends Component {
     description: "",
     image: "",
     url: "",
+    tags: ""
   };
 
-  // linkPost = async (e) => {
-  //   this.setState({ [name]: value });
-  // };
-
   linkMetadata = async (e) => {
-    console.log('working')
-    console.log(e.target.value)
     const metadata = await Axios.get(
       `http://api.linkpreview.net/?key=61a96cdca666e25e6b9937fffa190c2d&q=${e.target.value}`
     );
     const response = metadata.data;
     console.log(response);
-    this.setState({...response})
+    this.setState(prevState => ({
+      ...response
+    }))
+    console.log(this.state)
   };
+
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState({
+      [name]: value
+    })
+  }
 
   render() {
     const { linkMetadata } = this;
+    const {tags} = this.state
     return (
-      <div className="linkInput">
+      <form
+        className="linkInput"
+        onSubmit={(e) => {
+          e.preventDefault();
+          this.props.handleSubmit(this.state)
+        }}>
         <h6>Add a new Link</h6>
-        <input onChange={linkMetadata} placeholder="URL" />
-        <input placeholder="#Tags" />
+        <input 
+          onChange={linkMetadata}
+          placeholder="URL" />
+        <input
+          name="tags"
+          value={tags}
+          placeholder="#Tags"
+          onChange={this.handleChange} />
         <button>+</button>
-      </div>
+      </form>
     );
   }
 }

@@ -17,13 +17,15 @@ ActiveRecord::Schema.define(version: 2020_07_13_153722) do
 
   create_table "linkposts", force: :cascade do |t|
     t.string "title"
-    t.string "link"
     t.string "date"
     t.string "tags"
-    t.bigint "users_id", null: false
+    t.string "description"
+    t.string "image"
+    t.string "url"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_linkposts_on_users_id"
+    t.index ["user_id"], name: "index_linkposts_on_user_id"
   end
 
   create_table "textposts", force: :cascade do |t|
@@ -32,10 +34,10 @@ ActiveRecord::Schema.define(version: 2020_07_13_153722) do
     t.string "date"
     t.string "tags"
     t.string "metadata"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_textposts_on_users_id"
+    t.index ["user_id"], name: "index_textposts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,6 +50,6 @@ ActiveRecord::Schema.define(version: 2020_07_13_153722) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "linkposts", "users", column: "users_id"
-  add_foreign_key "textposts", "users", column: "users_id"
+  add_foreign_key "linkposts", "users"
+  add_foreign_key "textposts", "users"
 end

@@ -1,4 +1,4 @@
-class TextpostController < ApplicationController
+class TextpostsController < ApplicationController
   before_action :authorize_request 
 
   def index 
@@ -7,8 +7,9 @@ class TextpostController < ApplicationController
 
   def create 
     @textpost = Textpost.new(textpost_params)
-    @current_user.textposts << @textpost
-    render json: @current_user.textposts, status: :created
+    @textpost.user = @current_user
+    @textpost.save()
+    render json: @textpost, status: :created
   end
 
   def show 
@@ -30,15 +31,11 @@ class TextpostController < ApplicationController
 
   private 
 
-  def get_user 
-    @user = User.find(params[:id])
-  end
-
   def set_textpost
     @textpost = Textpost.find(params[:id])
   end
 
   def textpost_params 
-    params.require(:user).permit(:title, :body, :date, :tags)
+    params.require(:textpost).permit(:title, :body, :date, :tags)
   end
 end
