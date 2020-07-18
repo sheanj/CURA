@@ -18,14 +18,15 @@ export default class UserRegisterPopUp extends Component {
   };
   render() {
     const { name, username, phone_number, email, password } = this.state;
-    const { handleRegister, history } = this.props;
+    const { handleRegister, history, handleLogin } = this.props;
     return (
       <div className="register">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             handleRegister(this.state);
-            history.push("/");
+            handleLogin(this.state);
+            history.push("/timeline");
           }}
           >
           <h1>Register</h1>

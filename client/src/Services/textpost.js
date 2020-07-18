@@ -22,5 +22,5 @@ export const putText = async (id, postData) => {
 
 export const deleteTextPost = async (id) => {
   const response = await api.delete(`/textposts/${id}`);
-  return "destroyed";
+  return 'destroyed';
 };
