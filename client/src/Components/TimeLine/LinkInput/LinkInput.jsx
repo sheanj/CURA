@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./LinkInput.css";
 import Axios from "axios";
-import { key } from '../../../Services/.env';
 
 export default class TextPost extends Component {
   state = {
@@ -14,7 +13,7 @@ export default class TextPost extends Component {
 
   linkMetadata = async (e) => {
     const metadata = await Axios.get(
-      `http://api.linkpreview.net/?key=61a96cdca666e25e6b9937fffa190c2d&q=${e.target.value}`
+      `http://api.linkpreview.net/?key=${process.env.REACT_APP_TOKEN}&q=${e.target.value}`
     );
     const response = metadata.data;
     console.log(response);

@@ -13,13 +13,6 @@ export default class LoginPopUp extends Component {
     this.setState({ [name]: value });
   }
 
-  // handleLogin = (e) => {
-  //   const { name, value } = e.target;
-  //   this.setState({
-  //     [name]: value
-  //   })
-  // }
-
   render() {
     const { username, password } = this.state;
     const { handleLogin, history } = this.props;

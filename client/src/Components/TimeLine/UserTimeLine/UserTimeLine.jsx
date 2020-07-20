@@ -83,12 +83,22 @@ class UserTimeLine extends Component {
     });
   };
 
-  updateTextPost = async (e, id, postData) => {
-    e.preventDefault();
+  editPost = async (id) => {
     this.setState({
-      editComponent: true,
+      editComponent: id,
     });
-    // await putText(id, postData)
+  };
+
+  putTextPost = async (id, postData) => {
+    await putText(id, postData);
+  };
+
+  updateLinkPost = async (id, linkData) => {
+    await putLinkPost(id, linkData);
+    this.fetchTimeline()
+    this.setState(prevState=>({
+      editComponent: false
+    }))
   };
 
   render() {
@@ -111,14 +121,18 @@ class UserTimeLine extends Component {
                     id={post.id}
                     deleteTimelineLinkPost={this.deleteTimelineLinkPost}
                     putLinkPost={putLinkPost}
+                    edit={this.state.editComponent}
+                    editPost={this.editPost}
+                    updateLinkPost={this.updateLinkPost}
                   />
                 ) : (
                   <TextPost
                     post={post}
                     id={post.id}
                     deleteTimelineTextPost={this.deleteTimelineTextPost}
-                    putText={this.updateTextPost}
+                    editPost={this.editPost}
                     edit={this.state.editComponent}
+                    putTextPost={this.putTextPost}
                   />
                 )
               )}

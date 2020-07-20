@@ -18,7 +18,7 @@ class LinkpostsController < ApplicationController
 
   def update
     set_linkpost
-    linkpost.update(linkpost_params)
+    @linkpost.update(linkpost_params)
     render json: @linkpost, status: :ok
   end
 
