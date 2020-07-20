@@ -47,9 +47,9 @@ export default class TextPost extends Component {
                 name="tags"
                 onChange={this.handleChange}
                 value={this.state.tags}
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
+                // onClick={(e) => {
+                //   e.stopPropagation();
+                // }}
               />
             ) : (
               <h4>{post.tags}</h4>

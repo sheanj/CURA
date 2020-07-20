@@ -9,8 +9,6 @@ export default class TextPost extends Component {
     tags: "",
   };
 
-  
-
   handleInput = (e) => {
     const { name, value } = e.target;
     this.setState({

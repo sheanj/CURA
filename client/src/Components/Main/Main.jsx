@@ -36,14 +36,9 @@ export default class Main extends Component {
           />
         )} 
         />
-        <Route exact path='/test'  render={(props) => (
-          <TextInput />
-        )} 
-        />
-        <Route exact path='/'  render={(props) => (
-          <Landing />
-        )} 
-        />
+        <Route exact path='/test'><TextInput /></Route>
+        <Route exact path='/'><Landing /></Route> 
+
         <Route exact path='/timeline'  render={(props) => (
           <UserTimeLine
             {...this.props}

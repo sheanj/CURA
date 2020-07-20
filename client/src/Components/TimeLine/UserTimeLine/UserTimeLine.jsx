@@ -120,7 +120,6 @@ class UserTimeLine extends Component {
                     post={post}
                     id={post.id}
                     deleteTimelineLinkPost={this.deleteTimelineLinkPost}
-                    putLinkPost={putLinkPost}
                     edit={this.state.editComponent}
                     editPost={this.editPost}
                     updateLinkPost={this.updateLinkPost}
