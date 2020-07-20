@@ -4,7 +4,7 @@ import { putText, deleteTextPost } from "../../../../Services/textpost";
 
 export default class TextPost extends Component {
   render() {
-    const { post, deleteTimelineTextPost, putText, id, putTextPost, postData, edit, editPost } = this.props;
+    const { post, deleteTimelineTextPost, id, putTextPost, edit, editPost } = this.props;
     return (
       <div className="textPost">
         <img src="https://i.ya-webdesign.com/images/small-circle-png-4.png" />

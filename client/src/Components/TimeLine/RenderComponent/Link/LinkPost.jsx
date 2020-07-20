@@ -26,11 +26,9 @@ export default class TextPost extends Component {
   render() {
     const {
       deleteTimelineLinkPost,
-      putLinkPost,
       id,
       post,
       edit,
-      postData,
       updateLinkPost,
       editPost,
     } = this.props;
