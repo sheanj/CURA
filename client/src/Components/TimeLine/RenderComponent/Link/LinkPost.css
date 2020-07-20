@@ -1,0 +1,106 @@
+.linkPost {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border-radius: 10px;
+  border-top: .2px solid grey;
+  width: 93%;
+  height: fit-content;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  box-shadow: 0px 10px 10px #888888;
+  background-color: rgba(204, 211, 211, 0.153);
+  backdrop-filter: blur(5px);
+}
+
+.dot {
+  height: 0;
+  width: 0;
+}
+
+.dot img {
+  position: relative;
+  top: 0px;
+  left: -24px;
+  height: auto;
+  width: 60px;
+  margin: ;
+}
+
+.linkDot {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin: 0;
+  color: black;
+}
+
+.linkDot img {
+  zoom: 90%;
+}
+
+.tags {
+  width: fit-content;
+  position: relative;
+  left: 92%;
+  bottom: 45px;
+  border: 1px solid black;
+  background-color: transparent;
+  border-radius: 50px;
+  color: black;
+}
+
+.tags h4 {
+  margin: 0;
+}
+
+.linkPost img {
+  align-self: flex-end;
+  width: 93%;
+  zoom: 40%;
+  margin-left: 10px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-top: 0;
+  box-shadow: 0px 10px 10px #888888;
+}
+
+.title {
+  height: fit-content;
+  max-height: 3em;
+  position: relative;
+  overflow: hidden;
+  width: 94%;
+  align-self: flex-end;
+  bottom: 50px;
+  left: 5px;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  border-radius: 0 0px 10px 10px;
+  background-color: rgba(204, 211, 211, 0.153);
+}
+
+.title h4 {
+  padding-left: 10px;
+  margin: 0;
+  padding-top: 5px;
+  color: black;
+}
+
+.crud {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+.crud button {
+  margin: 0;
+  margin-left: 10px;
+}
+
+a {
+  text-decoration: none;
+}
