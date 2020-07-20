@@ -68,10 +68,13 @@
 
 .title {
   height: fit-content;
+  max-height: 3em;
   position: relative;
-  width: 93%;
+  overflow: hidden;
+  width: 94%;
   align-self: flex-end;
-  bottom: 122px;
+  bottom: 50px;
+  left: 5px;
   background-color: transparent;
   backdrop-filter: blur(5px);
   border-radius: 0 0px 10px 10px;

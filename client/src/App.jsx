@@ -24,6 +24,7 @@ class App extends Component {
   handleRegister = async (userData) => {
     const loggedUser = await registerUser(userData);
     this.setState({ loggedUser });
+    this.props.history.push('/timeline')
   }
 
   handleLogout = () => {

@@ -14,10 +14,9 @@ export default class TextPost extends Component {
           <h6>Note posted at {post.created_at}</h6>
         </div>
         <div className="tags">
-          {/* {this.state.edit ? 
-          <input value={this.props.post.tags} /> : 
-          <h4>{post.tags}</h4>} */}
-          <h4>{post.tags}</h4>
+          {this.props.edit ? 
+          <input value={post.tags} /> : 
+          <h4>{post.tags}</h4>}
         </div>
         <div className="note">
           <h4>{post.title}</h4>
