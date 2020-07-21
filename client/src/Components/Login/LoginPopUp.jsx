@@ -21,7 +21,6 @@ export default class LoginPopUp extends Component {
         <form onSubmit={(e) => {
           e.preventDefault();
           handleLogin(this.state);
-          history.push('/timeline')
         }}>
           <h1>Welcome Back!</h1>
           <input 

@@ -19,6 +19,7 @@ class App extends Component {
   handleLogin = async (userData) => {
     const loggedUser = await loginUser(userData);
     this.setState({ loggedUser })
+    this.props.history.push('/timeline')
   }
 
   handleRegister = async (userData) => {
