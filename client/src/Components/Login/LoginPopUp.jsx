@@ -40,7 +40,6 @@ export default class LoginPopUp extends Component {
             onChange={this.handleChange}
             required
           />
-          {/* <Link to="/register"><h6>Need an account?</h6></Link> */}
           <button>Login</button>
         </form>
       </div>
