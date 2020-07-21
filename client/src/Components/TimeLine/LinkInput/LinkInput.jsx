@@ -13,7 +13,7 @@ export default class TextPost extends Component {
 
   linkMetadata = async (e) => {
     const metadata = await Axios.get(
-      `http://api.linkpreview.net/?key=${process.env.REACT_APP_TOKEN}&q=${e.target.value}`
+      `https://api.linkpreview.net/?key=${process.env.REACT_APP_TOKEN}&q=${e.target.value}`
     );
     const response = metadata.data;
     console.log(response);
