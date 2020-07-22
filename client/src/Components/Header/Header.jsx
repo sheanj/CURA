@@ -13,8 +13,8 @@ export default class Header extends Component {
           <button onClick={this.props.handleLogout}>LOGOUT</button>
           :
           <>
-            <Link to='/login'><button>Log In</button></Link> 
-            <Link to='/register'><button>Register</button></Link>
+            <button onClick={this.props.handlePopOver}>Log In</button>
+            <button onClick={this.props.registerPopOver}>Register</button>
           </>
         }
       </header>
