@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
+
 
 import { loginUser, registerUser, removeToken, verifyUser } from './Services/auth';
 
@@ -9,7 +10,9 @@ import Main from './Components/Main/Main';
 class App extends Component {
   state = {
     loggedUser: null,
-    username: ''
+    username: '',
+    loginPopUp: false, 
+    registerPopUp: false
   }
 
   componentDidMount() {
@@ -42,16 +45,34 @@ class App extends Component {
     this.setState({ loggedUser });
   }
 
+  handlePopOver = () => {
+    this.setState({ 
+      loginPopUp: true
+    })
+  }
+
+  registerPopOver = () => {
+    this.setState({
+      registerPopUp: true
+    })
+  }
+
   render() {
     return (
       <div>
-        <Main
+        <Route
+        render={(props) => (<Main
           loggedUser={this.state.loggedUser}
           handleLogin={this.handleLogin}
           handleRegister={this.handleRegister}
           handleLogout={this.handleLogout}
+          handlePopOver={this.handlePopOver}
+          loginPopUp={this.state.loginPopUp}
+          registerPopOver={this.registerPopOver}
+          registerPopUp={this.state.registerPopUp}
+          {...props}
+        />)}
         />
-        
       </div>
     )
   }

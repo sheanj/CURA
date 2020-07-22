@@ -30,6 +30,7 @@ export default class LoginPopUp extends Component {
             value={username}
             onChange={this.handleChange}
             required
+            autoFocus
           />
           <input 
             type="password"
