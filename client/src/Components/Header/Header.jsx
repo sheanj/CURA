@@ -5,10 +5,11 @@ import '../Header/Header.css';
 
 export default class Header extends Component {
   render() {
-    // if (this.props.loggedUser)
     return (
       <header>
-        <Link to='/'><img src={Logo} /></Link>
+        {localStorage.getItem("authToken") ?
+          (<Link to='/timeline'><img src={Logo} /></Link>) :
+          (<Link to='/'><img src={Logo} /></Link>)}
         {this.props.loggedUser ?
           <button onClick={this.props.handleLogout}>LOGOUT</button>
           :
