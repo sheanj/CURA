@@ -117,3 +117,46 @@
   position: relative;
   /* left: -90px; */
 }
+
+@media only screen and (max-width: 375px) {
+  .timeline {
+    flex-direction: column;
+  }
+  .container {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+
+  .inputComponents {
+    position: relative;
+    top: 1%;
+    width: 100%;
+    background-color: none;
+
+  }
+
+  .userTimeline {
+    width: 100%;
+  }
+
+  .posts {
+    width: 100%;
+    left: 0;
+  }
+
+  .render {
+    width: 100%;
+    margin-top: 15%;
+    overflow-y: hidden;
+  }
+
+  .textPost {
+    margin-left: 0;
+  }
+
+  .header {
+    width: 95%;
+    left: 2.5%;
+  }
+}

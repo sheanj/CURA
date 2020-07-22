@@ -31,7 +31,7 @@ form button {
   margin-bottom: 15px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 375px) {
   .login form {
     bottom: 0;
     top: 57vh;
