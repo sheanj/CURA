@@ -103,3 +103,10 @@
 a {
   text-decoration: none;
 }
+
+@media only screen and (max-width: 375px) {
+  .linkPost {
+    width: 90%;
+    margin-left: 4%;
+  }
+}
