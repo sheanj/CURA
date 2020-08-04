@@ -13,10 +13,10 @@ export default class TextPost extends Component {
 
   linkMetadata = async (e) => {
     const metadata = await Axios.get(
-      `https://api.linkpreview.net/?key=${process.env.REACT_APP_TOKEN}&q=${e.target.value}`
+      `https://api.linkpreview.net/?key=61a96cdca666e25e6b9937fffa190c2d&q=${e.target.value}`
     );
     const response = metadata.data;
-    console.log(response);
+    console.log(process.env.REACT_APP_TOKEN);
     this.setState(prevState => ({
       ...response
     }))

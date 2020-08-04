@@ -1,10 +1,12 @@
 .timeline {
   width: 100%;
+  height: 85vh;
+  background-color: white;
 }
 
 .header {
   position: fixed;
-  top: 10;
+  top: 14%;
   left: 5%;
   margin: 0;
   width: 44%;
@@ -30,6 +32,17 @@
   background-color: transparent;
   border-radius: 20px;
   box-shadow: 0px 0px 10px #888888;
+}
+
+.nullTimeLine {
+  position: fixed;
+  top: 19.85%;
+  left: 5%;
+  width: 43.25%;
+  box-shadow: 0px 0px 10px #888888;
+  backdrop-filter: blur(5px);
+  border-radius: 0px 0px 20px 20px;
+  padding-left: 10px;
 }
 
 .timeline h1 {
@@ -118,7 +131,7 @@
   /* left: -90px; */
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 500px) {
   .timeline {
     flex-direction: column;
   }
@@ -131,9 +144,9 @@
   .inputComponents {
     position: relative;
     top: 1%;
-    width: 100%;
+    left: 5%;
+    width: 90%;
     background-color: none;
-
   }
 
   .userTimeline {
@@ -141,18 +154,31 @@
   }
 
   .posts {
-    width: 100%;
+    width: 90%;
     left: 0;
   }
 
   .render {
-    width: 100%;
-    margin-top: 15%;
+    width: 90%;
+    margin-top: 0;
+    margin-left: 5%;
     overflow-y: hidden;
   }
 
   .textPost {
     margin-left: 0;
+  }
+
+  .header {
+    top: 10%;
+  }
+
+  .nullTimeLine {
+    position: fixed;
+    top: 15.5%;
+    left: 3%;
+    width: 92%;
+    z-index: -1;
   }
 
   .header {

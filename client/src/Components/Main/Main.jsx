@@ -15,11 +15,13 @@ export default class Main extends Component {
       handleRegister,
       handleLogout,
       handlePopOver,
-      registerPopOver, 
-      registerPopUp
+      registerPopOver,
+      registerPopUp,
+      loggedUser,
+      username
     } = this.props;
     return (
-      <div>
+      <div className="main">
         <Header
           {...this.props}
           handleLogout={handleLogout}
@@ -28,9 +30,6 @@ export default class Main extends Component {
           handleRegister={handleRegister}
           registerPopOver={registerPopOver}
         />
-        <Route exact path="/test">
-          <TextInput />
-        </Route>
         <Route
           exact
           path="/"
@@ -49,7 +48,14 @@ export default class Main extends Component {
         <Route
           exact
           path="/timeline"
-          render={(props) => <UserTimeLine {...this.props} {...props} />}
+          render={(props) => (
+            <UserTimeLine
+              {...this.props}
+              {...props}
+              // username={username}
+              loggedUser={loggedUser}
+            />
+          )}
         />
       </div>
     );
