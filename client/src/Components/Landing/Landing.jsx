@@ -8,7 +8,7 @@ import { withRouter, Route } from 'react-router-dom';
 class Landing extends Component {
   render() {
     return (
-      <>
+      <div className="landingContainer">
         <div className="landing blur">
           <div className="preview">
             <p>
@@ -43,7 +43,7 @@ class Landing extends Component {
         ) : (
           <></>
         )}
-      </>
+      </div>
     );
   }
 }

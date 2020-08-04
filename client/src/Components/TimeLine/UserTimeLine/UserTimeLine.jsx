@@ -23,6 +23,8 @@ class UserTimeLine extends Component {
     timeline: [],
     addComponent: false,
     editComponent: false,
+    username: null,
+    date: "",
   };
 
   componentDidMount = () => {
@@ -32,6 +34,8 @@ class UserTimeLine extends Component {
     if (this.props.loggedUser) {
       this.fetchTimeline();
     }
+    // this.setFormData();
+    this.displayDate();
   };
 
   componentDidUpdate = (prevProps) => {
@@ -95,13 +99,55 @@ class UserTimeLine extends Component {
 
   updateLinkPost = async (id, linkData) => {
     await putLinkPost(id, linkData);
-    this.fetchTimeline()
-    this.setState(prevState=>({
-      editComponent: false
-    }))
+    this.fetchTimeline();
+    this.setState((prevState) => ({
+      editComponent: false,
+    }));
+  };
+
+  displayDate = () => {
+    let d = new Date(),
+      minutes =
+        d.getMinutes().toString().length == 1
+          ? "0" + d.getMinutes()
+          : d.getMinutes(),
+      hours =
+        d.getHours().toString().length == 1 ? "0" + d.getHours() : d.getHours()-12,
+      ampm = d.getHours() >= 12 ? "PM" : "AM",
+      months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
+      days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let date =
+      days[d.getDay()] +
+      " " +
+      months[d.getMonth()] +
+      " " +
+      d.getDate() +
+      ", " +
+      d.getFullYear() +
+      " " +
+      hours +
+      ":" +
+      minutes +
+      ampm
+    this.setState({ date });
   };
 
   render() {
+    const { timeline, date } = this.state;
+    const { loggedUser } = this.props;
     return (
       <div className="timeline">
         <div className="container">
@@ -113,8 +159,17 @@ class UserTimeLine extends Component {
               <h1>Your Timeline</h1>
               <button onClick={this.addComponent}>+</button>
             </div>
+            <div className="nullTimeLine">
+              {this.props.loggedUser && !timeline[0] ? (
+                <div className="welcome">
+                  <h3>Welcome {loggedUser.name} it's {date}</h3>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
             <div className="render">
-              {this.state.timeline.map((post, id) =>
+              {timeline.map((post, id) =>
                 post.url ? (
                   <LinkPost
                     post={post}
