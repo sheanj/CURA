@@ -4,12 +4,14 @@ import { Logo } from "../../Assets/Logo/LogoLarge.png";
 import LoginPopUp from "../Login/LoginPopUp";
 import UserRegisterPopUp from "../Login/UserRegisterPopUp";
 import { withRouter, Route } from 'react-router-dom';
+import LandingImg from '../../Assets/Landing/LANDING.png'
 
 class Landing extends Component {
   render() {
     return (
       <div className="landingContainer">
         <div className="landing blur">
+          <div className="landingImg"><img src={LandingImg}/></div>
           <div className="preview">
             <p>
               CURA is your personal data management application. Every day we
