@@ -14,7 +14,8 @@
 
 .noteInput input {
   width: 84%;
-  height: 100px;
+  overflow: auto;
+  resize: vertical;
 }
 
 .textInput input {

@@ -32,6 +32,7 @@ class UserTimeLine extends Component {
       this.props.history.push("/login");
     }
     if (this.props.loggedUser) {
+      this.setState({username: this.props.loggedUser.username})
       this.fetchTimeline();
     }
     // this.setFormData();
@@ -156,7 +157,7 @@ class UserTimeLine extends Component {
           </div>
           <div className="posts">
             <div className="header">
-              <h1>Your Timeline</h1>
+              <h1>@{this.state.username} Timeline</h1>
               <button onClick={this.addComponent}>+</button>
             </div>
             <div className="nullTimeLine">
