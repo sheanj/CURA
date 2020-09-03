@@ -1,11 +1,11 @@
 .login form {
-  border: 1px solid black;
   position: fixed;
-  left: 25%;
-  top: 25%;
-  width: 50%;
+  left: 43%;
+  top: 8%;
+  max-width: fit-content;
   height: fit-content;
   margin: auto;
+  padding: 2%;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
   background-color: rgba(222, 228, 228, 0.9);
   backdrop-filter: blur(5px);
   z-index: 5;
-  box-shadow: 0px 0px 15px #888888;
+  filter: drop-shadow(0px 50px 50px grey) 
 }
 
 .login h1 {
@@ -21,14 +21,23 @@
 }
 
 .login input {
-  margin-right: 10%;
-  margin-left: 10%;
+  margin: 4%;
+  width: 300px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid grey;
 }
 
 form button {
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-bottom: 15px;
+  align-self: center;
+  background-color: #25283D;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  width: 90px;
+  margin: 30px;
 }
 
 @media only screen and (max-width: 375px) {
