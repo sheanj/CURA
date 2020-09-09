@@ -40,7 +40,7 @@ class UserTimeLine extends Component {
   };
 
   componentDidUpdate = (prevProps) => {
-    if (prevProps.loggedUser != this.props.loggedUser) {
+    if (prevProps.loggedUser !== this.props.loggedUser) {
       this.fetchTimeline();
     }
   };
@@ -109,11 +109,11 @@ class UserTimeLine extends Component {
   displayDate = () => {
     let d = new Date(),
       minutes =
-        d.getMinutes().toString().length == 1
+        d.getMinutes().toString().length === 1
           ? "0" + d.getMinutes()
           : d.getMinutes(),
       hours =
-        d.getHours().toString().length == 1 ? "0" + d.getHours() : d.getHours()-12,
+        d.getHours().toString().length === 1 ? "0" + d.getHours() : d.getHours()-12,
       ampm = d.getHours() >= 12 ? "PM" : "AM",
       months = [
         "January",

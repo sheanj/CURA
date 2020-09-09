@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../Landing/Landing.css";
-import { Logo } from "../../Assets/Logo/LogoLarge.png";
 import LoginPopUp from "../Login/LoginPopUp";
 import UserRegisterPopUp from "../Login/UserRegisterPopUp";
 import { withRouter, Route } from 'react-router-dom';
@@ -11,7 +10,7 @@ class Landing extends Component {
     return (
       <div className="landingContainer">
         <div className="landing blur">
-          <div className="landingImg"><img src={LandingImg}/></div>
+          <div className="landingImg"><img src={LandingImg} alt="cura preview"/></div>
           <div className="preview">
             <p>
               CURA is your personal data management application. Every day we

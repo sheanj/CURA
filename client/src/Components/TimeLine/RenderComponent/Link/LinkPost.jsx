@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../Link/LinkPost.css";
-import { Link } from "react-router-dom";
 
 export default class TextPost extends Component {
   state = {
@@ -35,7 +34,7 @@ export default class TextPost extends Component {
     return (
       <>
         <div className="dot">
-          <img src="https://i.ya-webdesign.com/images/small-circle-png-4.png" />
+          <img src="https://i.ya-webdesign.com/images/small-circle-png-4.png" alt="timeline marker"/>
         </div>
         <div className="linkPost">
           <div className="linkDot">
@@ -55,8 +54,8 @@ export default class TextPost extends Component {
               <h4>{post.tags}</h4>
             )}
           </div>
-          <a target="_blank" href={post.url}>
-            <img src={post.image}></img>
+          <a target="_blank" rel="noopener noreferrer" href={post.url}>
+            <img src={post.image} alt="article"></img>
           </a>
           <div className="title">
             <h4>{post.title}</h4>

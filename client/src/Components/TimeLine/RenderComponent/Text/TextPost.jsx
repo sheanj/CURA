@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../Text/TextPost.css";
-import { putText, deleteTextPost } from "../../../../Services/textpost";
+// import { putText, deleteTextPost } from "../../../../Services/textpost";
 
 export default class TextPost extends Component {
   render() {
@@ -14,7 +14,7 @@ export default class TextPost extends Component {
     } = this.props;
     return (
       <div className="textPost">
-        <img src="https://i.ya-webdesign.com/images/small-circle-png-4.png" />
+        <img src="https://i.ya-webdesign.com/images/small-circle-png-4.png" alt="timeline marker"/>
         <div className="linkDot">
           <h6>Note posted at {post.created_at}</h6>
         </div>

@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 
 import Header from "../Header/Header";
-import LoginPopUp from "../Login/LoginPopUp";
-import UserRegisterPopUp from "../Login/UserRegisterPopUp";
-import TextInput from "../TimeLine/TextInput/TextInput";
 import Landing from "../Landing/Landing";
 import UserTimeLine from "../TimeLine/UserTimeLine/UserTimeLine";
 
@@ -18,7 +15,6 @@ export default class Main extends Component {
       registerPopOver,
       registerPopUp,
       loggedUser,
-      username
     } = this.props;
     return (
       <div className="main">
@@ -52,7 +48,6 @@ export default class Main extends Component {
             <UserTimeLine
               {...this.props}
               {...props}
-              // username={username}
               loggedUser={loggedUser}
             />
           )}

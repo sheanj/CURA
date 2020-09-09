@@ -35,7 +35,7 @@
 }
 
 .textInput button {
-  position: relative;
+  position: fixed;
   left: 77%;
   width: 10%;
   margin-bottom: 10px;

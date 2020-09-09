@@ -22,8 +22,8 @@ export default class Header extends Component {
       <header>
         <Route path="/" exact><button onClick={this.props.registerPopOver}>REGISTER</button></Route>
         {localStorage.getItem("authToken") ?
-          (<Link to='/timeline'><img src={Logo} /></Link>) :
-          (<Link to='/'><img src={Logo} /></Link>)}
+          (<Link to='/timeline'><img src={Logo} alt="CuraLogo" /></Link>) :
+          (<Link to='/'><img src={Logo} alt="CuraLogo" /></Link>)}
         {this.props.loggedUser ?
           <button onClick={this.props.handleLogout}>LOGOUT</button>
           :
