@@ -23,7 +23,7 @@ class Landing extends Component {
               note? CURA aims to organize these events in one seamless timeline
               so that nothing is ever on the tip of your tongue, but just a
               click away. Write notes, save articles, create task lists, and
-              catalogue all your digital media with CURA.{" "}
+              catalogue all your digital media with CURA.
             </p>
           </div>
         </div>

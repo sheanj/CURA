@@ -1,4 +1,5 @@
 .timeline {
+  margin-top: 10%;
   height: 100vh;
   width: 100%;
   height: inherit;
@@ -132,7 +133,7 @@
   /* left: -90px; */
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 375px) {
   .timeline {
     flex-direction: column;
   }
@@ -171,7 +172,7 @@
   }
 
   .header {
-    top: 10%;
+    top: 5%;
   }
 
   .nullTimeLine {

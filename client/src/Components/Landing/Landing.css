@@ -1,6 +1,7 @@
 .landingContainer {
   background-color: white;
-  height: 85vh;
+  height: inherit;
+  width: inherit;
 }
 
 .landing {
@@ -20,17 +21,22 @@
 }
 
 .landingImg {
-  position: relative;
-  left: -10%;
-  width: 50%;
+  position: fixed; 
+  left: 50%;
+  /* /* width: 100%; */
 }
 
 .landingImg img {
-zoom: 50%;
+  position: fixed;
+  left: 0;
+  top: 20%;
+  zoom: 80%;
 }
 
 .preview {
-  width: 50%;
+  position: relative;
+  /* left: 1%; */
+  max-width: 80%;
   border-radius: 20px;
   background-color: rgba(222, 228, 228, 0.7);
   backdrop-filter: blur(5px);
@@ -48,17 +54,36 @@ zoom: 50%;
   text-align: justify;
 }
 
-/* .blur {
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(10px);
-  pointer-events: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-} */
+@media only screen and (min-width: 320px) {
+  .landing {
+    flex-direction: column-reverse;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .preview {
+    position: fixed;
+    top: 20%;
+    left: 8%;
+    width: 100%;
+    padding: 10px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .preview p {
+    padding: 5px;
+  }
+
+ .landingImg {
+   left: -10%;
+   width: 100%;
+ }
+
+ .landingImg img {
+   position: fixed;
+   top: 15%;
+   left: 0;
+   zoom: 35%;
+ }
+}

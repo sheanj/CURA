@@ -40,7 +40,7 @@ class UserTimeLine extends Component {
   };
 
   componentDidUpdate = (prevProps) => {
-    if (prevProps.loggedUser !== this.props.loggedUser) {
+    if (prevProps.loggedUser != this.props.loggedUser) {
       this.fetchTimeline();
     }
   };
