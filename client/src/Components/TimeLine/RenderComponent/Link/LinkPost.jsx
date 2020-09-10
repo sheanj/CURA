@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../Link/LinkPost.css";
+import { FaPlusCircle, FaTrash, FaEdit } from "react-icons/fa";
 
 export default class TextPost extends Component {
   state = {
@@ -63,11 +64,11 @@ export default class TextPost extends Component {
           </div>
           <div className="crud">
             {edit === id ? (
-              <button onClick={() => updateLinkPost(id, this.state)}>+</button>
+              <button onClick={() => updateLinkPost(id, this.state)}><FaPlusCircle/></button>
             ) : (
               <>
-                <button onClick={() => editPost(id)}>=</button>
-                <button onClick={() => deleteTimelineLinkPost(id)}>-</button>
+                <button onClick={() => editPost(id)}><FaEdit/></button>
+                <button onClick={() => deleteTimelineLinkPost(id)}><FaTrash/></button>
               </>
             )}
           </div>

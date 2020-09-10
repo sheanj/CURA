@@ -17,6 +17,7 @@ import TextInput from "../TextInput/TextInput";
 import LinkInput from "../LinkInput/LinkInput";
 import LinkPost from "../RenderComponent/Link/LinkPost";
 import TextPost from "../RenderComponent/Text/TextPost";
+import { FaPlusCircle } from "react-icons/fa";
 
 class UserTimeLine extends Component {
   state = {
@@ -158,7 +159,7 @@ class UserTimeLine extends Component {
           <div className="posts">
             <div className="header">
               <h1>@{this.state.username} Timeline</h1>
-              <button onClick={this.addComponent}>+</button>
+              <button onClick={this.addComponent}><FaPlusCircle/></button>
             </div>
             <div className="nullTimeLine">
               {this.props.loggedUser && !timeline[0] ? (

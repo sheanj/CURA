@@ -32,7 +32,7 @@
   border-bottom: 2px;
 }
 
-form button {
+.login button {
   align-self: center;
   background-color: #25283D;
   color: white;

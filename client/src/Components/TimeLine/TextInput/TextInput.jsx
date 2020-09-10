@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../TextInput/TextInput.css";
+import { FaPlusCircle } from "react-icons/fa";
 
 export default class TextPost extends Component {
   state = {
@@ -20,38 +21,45 @@ export default class TextPost extends Component {
     const { title, date, body, tags } = this.state;
     const { handleTextPost } = this.props;
     return (
-      <form className="textInput" onSubmit={(e) => {
-        e.preventDefault();
-        handleTextPost(this.state);
-      }}>
-        <h6>Add a new Note</h6>
+      <form
+        className='textInput'
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleTextPost(this.state);
+        }}
+      >
+        <div className='inputHead'>
+          <h6>Add a new Note</h6>
+          <button>
+            <FaPlusCircle />
+          </button>
+        </div>
         <input
-          placeholder="Title"
-          name="title"
+          placeholder='Title'
+          name='title'
           value={title}
           onChange={this.handleInput}
         />
         <input
-          placeholder="Todays Date"
-          name="date"
+          placeholder='Todays Date'
+          name='date'
           value={date}
           onChange={this.handleInput}
         />
-        <div className="noteInput">
+        <div className='noteInput'>
           <input
-            placeholder="New Note..."
-            name="body"
+            placeholder='New Note...'
+            name='body'
             value={body}
             onChange={this.handleInput}
           />
         </div>
         <input
-          placeholder="#Tags"
-          name="tags"
+          placeholder='#Tags'
+          name='tags'
           value={tags}
           onChange={this.handleInput}
         />
-        <button>+</button>
       </form>
     );
   }
