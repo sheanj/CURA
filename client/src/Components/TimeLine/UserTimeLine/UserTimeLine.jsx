@@ -148,8 +148,9 @@ class UserTimeLine extends Component {
   };
 
   render() {
-    const { timeline, date } = this.state;
+    const { timeline, date, editComponent } = this.state;
     const { loggedUser } = this.props;
+    const { updateLinkPost, deleteTimelineLinkPost, deleteTimelineTextPost, editPost, putTextPost, handleTextPost, handleSubmit, addComponent } = this;
     return (
       <div className="timeline">
         <div className="container">
@@ -159,7 +160,7 @@ class UserTimeLine extends Component {
           <div className="posts">
             <div className="header">
               <h1>@{this.state.username} Timeline</h1>
-              <button onClick={this.addComponent}><FaPlusCircle/></button>
+              <button onClick={addComponent}><FaPlusCircle/></button>
             </div>
             <div className="nullTimeLine">
               {this.props.loggedUser && !timeline[0] ? (
@@ -176,19 +177,19 @@ class UserTimeLine extends Component {
                   <LinkPost
                     post={post}
                     id={post.id}
-                    deleteTimelineLinkPost={this.deleteTimelineLinkPost}
-                    edit={this.state.editComponent}
-                    editPost={this.editPost}
-                    updateLinkPost={this.updateLinkPost}
+                    deleteTimelineLinkPost={deleteTimelineLinkPost}
+                    edit={editComponent}
+                    editPost={editPost}
+                    updateLinkPost={updateLinkPost}
                   />
                 ) : (
                   <TextPost
                     post={post}
                     id={post.id}
-                    deleteTimelineTextPost={this.deleteTimelineTextPost}
-                    editPost={this.editPost}
-                    edit={this.state.editComponent}
-                    putTextPost={this.putTextPost}
+                    deleteTimelineTextPost={deleteTimelineTextPost}
+                    editPost={editPost}
+                    edit={editComponent}
+                    putTextPost={putTextPost}
                   />
                 )
               )}
@@ -199,10 +200,10 @@ class UserTimeLine extends Component {
               <div className="components">
                 <h1>Add to Timeline</h1>
                 <div className="text">
-                  <TextInput handleTextPost={this.handleTextPost} />
+                  <TextInput handleTextPost={handleTextPost} />
                 </div>
                 <div className="link">
-                  <LinkInput handleSubmit={this.handleSubmit} />
+                  <LinkInput handleSubmit={handleSubmit} />
                 </div>
               </div>
             ) : (
