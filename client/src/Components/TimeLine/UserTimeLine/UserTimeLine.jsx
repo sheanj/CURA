@@ -13,11 +13,12 @@ import {
   putText,
 } from "../../../Services/textpost.js";
 
+import UserHeader from '../UserHeader/UserHeader.jsx'
 import TextInput from "../TextInput/TextInput";
 import LinkInput from "../LinkInput/LinkInput";
 import LinkPost from "../RenderComponent/Link/LinkPost";
 import TextPost from "../RenderComponent/Text/TextPost";
-import { FaPlusCircle } from "react-icons/fa";
+import PhotoUpload from "../RenderComponent/Upload/PhotoUpload";
 
 class UserTimeLine extends Component {
   state = {
@@ -33,7 +34,7 @@ class UserTimeLine extends Component {
       this.props.history.push("/login");
     }
     if (this.props.loggedUser) {
-      this.setState({username: this.props.loggedUser.username})
+      this.setState({ username: this.props.loggedUser.username });
       this.fetchTimeline();
     }
     // this.setFormData();
@@ -107,6 +108,14 @@ class UserTimeLine extends Component {
     }));
   };
 
+  updateTextPost = async (id, linkData) => {
+    await putText(id, linkData);
+    this.fetchTimeline();
+    this.setState((prevState) => ({
+      editComponent: false,
+    }));
+  };
+
   displayDate = () => {
     let d = new Date(),
       minutes =
@@ -114,7 +123,9 @@ class UserTimeLine extends Component {
           ? "0" + d.getMinutes()
           : d.getMinutes(),
       hours =
-        d.getHours().toString().length === 1 ? "0" + d.getHours() : d.getHours()-12,
+        d.getHours().toString().length === 1
+          ? "0" + d.getHours()
+          : d.getHours() - 12,
       ampm = d.getHours() >= 12 ? "PM" : "AM",
       months = [
         "January",
@@ -130,7 +141,15 @@ class UserTimeLine extends Component {
         "November",
         "December",
       ],
-      days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
     let date =
       days[d.getDay()] +
       " " +
@@ -143,35 +162,46 @@ class UserTimeLine extends Component {
       hours +
       ":" +
       minutes +
-      ampm
+      ampm;
     this.setState({ date });
   };
 
   render() {
-    const { timeline, date, editComponent } = this.state;
-    const { loggedUser } = this.props;
-    const { updateLinkPost, deleteTimelineLinkPost, deleteTimelineTextPost, editPost, putTextPost, handleTextPost, handleSubmit, addComponent } = this;
+    const { timeline, date, editComponent, username } = this.state;
+    const { loggedUser } = this.props; 
+    const {
+      updateLinkPost,
+      updateTextPost,
+      deleteTimelineLinkPost,
+      deleteTimelineTextPost,
+      editPost,
+      putTextPost,
+      handleTextPost,
+      handleSubmit,
+      addComponent,
+    } = this;
     return (
-      <div className="timeline">
-        <div className="container">
-          <div className="bar">
-            <div className="userTimeline"></div>
+      <div className='timeline'>
+        <div className='container'>
+          <div className='bar'>
+            <div className='userTimeline'></div>
           </div>
-          <div className="posts">
-            <div className="header">
-              <h1>@{this.state.username} Timeline</h1>
-              <button onClick={addComponent}><FaPlusCircle/></button>
-            </div>
-            <div className="nullTimeLine">
+          <div className='posts'>
+            {loggedUser ?
+              <UserHeader addComponent={addComponent} loggedUser={loggedUser}/> :
+              <UserHeader addComponent={addComponent} />}
+            <div className='nullTimeLine'>
               {this.props.loggedUser && !timeline[0] ? (
-                <div className="welcome">
-                  <h3>Welcome {loggedUser.name} it's {date}</h3>
+                <div className='welcome'>
+                  <h3>
+                    Welcome {loggedUser.name} it's {date}
+                  </h3>
                 </div>
               ) : (
                 <></>
               )}
             </div>
-            <div className="render">
+            <div className='render'>
               {timeline.map((post, id) =>
                 post.url ? (
                   <LinkPost
@@ -189,21 +219,25 @@ class UserTimeLine extends Component {
                     deleteTimelineTextPost={deleteTimelineTextPost}
                     editPost={editPost}
                     edit={editComponent}
-                    putTextPost={putTextPost}
+                      putTextPost={putTextPost}
+                      updateTextPost={updateTextPost}
                   />
                 )
               )}
             </div>
           </div>
-          <div className="inputComponents">
+          <div className='inputComponents'>
             {this.state.addComponent ? (
-              <div className="components">
+              <div className='components'>
                 <h1>Add to Timeline</h1>
-                <div className="text">
+                <div className='text'>
                   <TextInput handleTextPost={handleTextPost} />
                 </div>
-                <div className="link">
+                <div className='link'>
                   <LinkInput handleSubmit={handleSubmit} />
+                </div>
+                <div className="photo">
+                  <PhotoUpload handleSubmit={handleSubmit}/>
                 </div>
               </div>
             ) : (

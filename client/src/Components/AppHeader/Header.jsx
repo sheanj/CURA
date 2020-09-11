@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link, Route} from 'react-router-dom';
 import Logo from '../../Assets/Logo/CURA.png';
-import '../Header/Header.css';
+import './Header.css';
 
 export default class Header extends Component {
   render() {

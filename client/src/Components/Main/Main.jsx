@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 
-import Header from "../Header/Header";
+import Header from "../AppHeader/Header";
 import Landing from "../Landing/Landing";
 import UserTimeLine from "../TimeLine/UserTimeLine/UserTimeLine";
 
@@ -15,6 +15,7 @@ export default class Main extends Component {
       registerPopOver,
       registerPopUp,
       loggedUser,
+      username
     } = this.props;
     return (
       <div className="main">
@@ -49,6 +50,7 @@ export default class Main extends Component {
               {...this.props}
               {...props}
               loggedUser={loggedUser}
+              username={username}
             />
           )}
         />
