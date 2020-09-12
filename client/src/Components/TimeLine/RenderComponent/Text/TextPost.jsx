@@ -52,7 +52,7 @@ export default class TextPost extends Component {
         </div>
         <div className='tags'>
           {edit === id ? (
-            <input value={tags} name="tags" onChange={handleChange} />
+            <input value={tags} name="tags" onChange={handleChange}/>
           ) : (
             <h4>{post.tags}</h4>
           )}

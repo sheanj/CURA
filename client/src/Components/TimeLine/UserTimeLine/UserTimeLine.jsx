@@ -19,6 +19,7 @@ import LinkInput from "../LinkInput/LinkInput";
 import LinkPost from "../RenderComponent/Link/LinkPost";
 import TextPost from "../RenderComponent/Text/TextPost";
 import PhotoUpload from "../RenderComponent/Upload/PhotoUpload";
+import { processFile } from "../../../Services/photoupload";
 
 class UserTimeLine extends Component {
   state = {
@@ -27,6 +28,7 @@ class UserTimeLine extends Component {
     editComponent: false,
     username: null,
     date: "",
+    photoUpload: ''
   };
 
   componentDidMount = () => {

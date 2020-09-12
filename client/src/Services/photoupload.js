@@ -10,7 +10,7 @@ export const dropHandler = (e) => {
 }
 
 export const processFile = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.file;
     function getBase64(file) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
@@ -19,11 +19,3 @@ export const processFile = (e) => {
     getBase64(file);
 }
 
-// export const handleClickRemove = (e) =>{
-//   PhotoUpload.classList.remove("hasFile");
-//   setTimeout(() => {
-//     img.src = "";
-//   }, 250);
-//   input.type = "text";
-//   input.type = "file";
-// }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./UserHeader.css";
-import Logo from '../../../Assets/Logo/LogoMedium.png'
+import Logo from "../../../Assets/Logo/LogoMedium.png";
+import PFP from "../../../Assets/PFP.png";
 
 export default class UserHeader extends Component {
   render() {
@@ -8,10 +9,17 @@ export default class UserHeader extends Component {
     return (
       <div className='header'>
         <div className='userPhoto'>
-          {!loggedUser.profilePicture ? <img src={Logo} /> : <input />}
+          {loggedUser.profilePicture ? (
+            <img src={Logo} />
+          ) : (
+            <div className='pfpUpload'>
+              <input type='file' className='profilePhotoUpload' />
+              <img src={PFP} className='profilePhotoBlank' />
+            </div>
+          )}
         </div>
         <div className='headline'>
-          <h1>@{loggedUser.username} Timeline</h1>
+          <h1>@{loggedUser.username}'s Timeline</h1>
         </div>
         <button onClick={addComponent}>
           <svg
