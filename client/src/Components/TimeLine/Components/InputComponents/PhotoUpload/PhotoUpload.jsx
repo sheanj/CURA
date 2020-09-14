@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import "./PhotoUpload.css";
-import { FaArrowCircleUp, FaImages } from "react-icons/fa";
-import {
-  processFile,
-  handlePhotoUpload,
-  handleClickRemove,
-} from "../../../Services/photoupload";
-import { photoUpload } from "../../../Services/timeline";
-import api from "../../../Services/api-helper.js";
+import { FaArrowCircleUp } from "react-icons/fa";
+
+
 
 export default class PhotoUpload extends Component {
   state = {
@@ -40,11 +35,11 @@ export default class PhotoUpload extends Component {
     });
   };
 
-  photoUpload = async (e) => {
-    e.preventDefault();
-    const userData = new FormData();
-    return await api.post("/users", userData);
-  };
+  // photoUpload = async (e) => {
+  //   e.preventDefault();
+  //   const userData = new FormData();
+  //   return await api.post("/users", userData);
+  // };
 
   render() {
     const { imageReset, photoUpload, imageHandler } = this;

@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import "./UserTimeLine.css";
 import { withRouter } from "react-router-dom";
-import { timeline } from "../../../Services/timeline";
+import { timeline } from "../../Services/timeline";
 import {
   postLink,
   deleteLinkPost,
   putLinkPost,
-} from "../../../Services/linkpost";
+} from "../../Services/linkpost";
 import {
   postText,
   deleteTextPost,
   putText,
-} from "../../../Services/textpost.js";
+} from "../../Services/textpost.js";
 
 import UserHeader from '../UserHeader/UserHeader.jsx'
 import TextInput from "../TextInput/TextInput";
@@ -19,7 +19,7 @@ import LinkInput from "../LinkInput/LinkInput";
 import LinkPost from "../RenderComponent/Link/LinkPost";
 import TextPost from "../RenderComponent/Text/TextPost";
 import PhotoUpload from "../RenderComponent/Upload/PhotoUpload";
-import { processFile } from "../../../Services/photoupload";
+import { processFile } from "../../Services/photoupload";
 
 class UserTimeLine extends Component {
   state = {
