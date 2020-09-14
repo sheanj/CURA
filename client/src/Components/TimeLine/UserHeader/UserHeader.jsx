@@ -9,7 +9,7 @@ export default class UserHeader extends Component {
     return (
       <div className='header'>
         <div className='userPhoto'>
-          {loggedUser.profilePicture ? (
+          {loggedUser ? (
             <img src={Logo} />
           ) : (
             <div className='pfpUpload'>
@@ -19,7 +19,7 @@ export default class UserHeader extends Component {
           )}
         </div>
         <div className='headline'>
-          <h1>@{loggedUser.username}'s Timeline</h1>
+          <h1>@{loggedUser}'s Timeline</h1>
         </div>
         <button onClick={addComponent}>
           <svg

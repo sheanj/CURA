@@ -22,14 +22,14 @@
 
 .landingImg {
   position: fixed; 
-  left: 50%;
-  /* /* width: 100%; */
+  top: 10%;
+  left: 25%;
 }
 
 .landingImg img {
-  position: fixed;
-  left: 0;
+  position: relative;
   top: 20%;
+  left: 10%;
   zoom: 80%;
 }
 

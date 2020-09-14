@@ -40,6 +40,48 @@
   margin: 30px;
 }
 
+.pfpRegisterUpload {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  width: 300px;
+}
+
+.profilePhotoUpload {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  z-index: 10;
+}
+
+.pfpRegisterUpload img {
+  position: relative;
+  left: -14%;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  border-radius: 40px;
+}
+
+.pfpRegisterUpload input {
+  margin: 0;
+  width: 50px;
+  z-index: 10;
+}
+
+.nameRegisterInput input {
+  display: flex;
+  width: 250px;
+  /* border: 1px solid black; */
+  margin-top: 32px;
+}
+
+.registerName input {
+  position: relative; 
+  left: -10%;
+  width: 200px;
+}
+
 @media only screen and (max-width: 375px) {
   .register form {
     bottom: 0;
