@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter, Route } from "react-router-dom";
-import './App.css'
+import "./App.css";
 
 import {
   loginUser,
@@ -13,9 +13,10 @@ import Main from "./Components/Main/Main";
 
 class App extends Component {
   state = {
-    loggedUser: null,
+    loggedUser: [],
     loginPopUp: false,
     registerPopUp: false,
+    username: "",
   };
 
   componentDidMount() {
@@ -24,13 +25,16 @@ class App extends Component {
 
   handleLogin = async (userData) => {
     const loggedUser = await loginUser(userData);
-    this.setState({ loggedUser });
+    this.setState({
+      loggedUser: loggedUser,
+      username: loggedUser.username,
+    });
     this.props.history.push("/timeline");
   };
 
   handleRegister = async (userData) => {
     const loggedUser = await registerUser(userData);
-    this.setState({ loggedUser });
+    this.setState({ loggedUser, username:loggedUser.username });
     this.props.history.push("/timeline");
   };
 
@@ -61,19 +65,22 @@ class App extends Component {
   };
 
   render() {
+    const { loggedUser, loginPopUp, registerPopUp, username } = this.state;
+    const { handleLogin, handleLogout, handleRegister, handlePopOver, registerPopOver} = this;
     return (
-      <div className="App">
+      <div className='App'>
         <Route
           render={(props) => (
             <Main
-              loggedUser={this.state.loggedUser}
-              handleLogin={this.handleLogin}
-              handleRegister={this.handleRegister}
-              handleLogout={this.handleLogout}
-              handlePopOver={this.handlePopOver}
-              loginPopUp={this.state.loginPopUp}
-              registerPopOver={this.registerPopOver}
-              registerPopUp={this.state.registerPopUp}
+              loggedUser={loggedUser}
+              handleLogin={handleLogin}
+              handleRegister={handleRegister}
+              handleLogout={handleLogout}
+              handlePopOver={handlePopOver}
+              loginPopUp={loginPopUp}
+              registerPopOver={registerPopOver}
+              registerPopUp={registerPopUp}
+              username={username}
               {...props}
             />
           )}

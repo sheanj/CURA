@@ -15,7 +15,7 @@ export default class LoginPopUp extends Component {
 
   render() {
     const { username, password } = this.state;
-    const { handleLogin, history } = this.props;
+    const { handleLogin } = this.props;
     return (
       <div className="login">
         <form onSubmit={(e) => {
@@ -30,7 +30,7 @@ export default class LoginPopUp extends Component {
             value={username}
             onChange={this.handleChange}
             required
-            autoFocus
+            active
           />
           <input 
             type="password"

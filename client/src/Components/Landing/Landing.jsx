@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../Landing/Landing.css";
-import { Logo } from "../../Assets/Logo/LogoLarge.png";
 import LoginPopUp from "../Login/LoginPopUp";
 import UserRegisterPopUp from "../Login/UserRegisterPopUp";
 import { withRouter, Route } from 'react-router-dom';
@@ -11,7 +10,7 @@ class Landing extends Component {
     return (
       <div className="landingContainer">
         <div className="landing blur">
-          <div className="landingImg"><img src={LandingImg}/></div>
+          <div className="landingImg"><img src={LandingImg} alt="cura preview"/></div>
           <div className="preview">
             <p>
               CURA is your personal data management application. Every day we
@@ -23,7 +22,7 @@ class Landing extends Component {
               note? CURA aims to organize these events in one seamless timeline
               so that nothing is ever on the tip of your tongue, but just a
               click away. Write notes, save articles, create task lists, and
-              catalogue all your digital media with CURA.{" "}
+              catalogue all your digital media with CURA.
             </p>
           </div>
         </div>

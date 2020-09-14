@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./LinkInput.css";
 import Axios from "axios";
+import { FaPlusCircle } from "react-icons/fa";
 
 export default class TextPost extends Component {
   state = {
@@ -40,7 +41,9 @@ export default class TextPost extends Component {
           e.preventDefault();
           this.props.handleSubmit(this.state)
         }}>
+        <div className="inputHead">
         <h6>Add a new Link</h6>
+        <button><FaPlusCircle/></button></div>
         <input 
           onChange={linkMetadata}
           placeholder="URL" />
@@ -49,7 +52,6 @@ export default class TextPost extends Component {
           value={tags}
           placeholder="#Tags"
           onChange={this.handleChange} />
-        <button>+</button>
       </form>
     );
   }

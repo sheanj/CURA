@@ -21,15 +21,80 @@
 }
 
 .register input {
-    margin: 4%;
+  margin: 4%;
   width: 300px;
   border: none;
   background-color: transparent;
   border-bottom: 1px solid grey;
 }
 
-.register form button {
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-bottom: 15px;
+.register button {
+  align-self: center;
+  background-color: #25283D;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  width: 90px;
+  margin: 30px;
+}
+
+.pfpRegisterUpload {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  width: 300px;
+}
+
+.profilePhotoUpload {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  z-index: 10;
+}
+
+.pfpRegisterUpload img {
+  position: relative;
+  left: -14%;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  border-radius: 40px;
+}
+
+.pfpRegisterUpload input {
+  margin: 0;
+  width: 50px;
+  z-index: 10;
+}
+
+.nameRegisterInput input {
+  display: flex;
+  width: 250px;
+  /* border: 1px solid black; */
+  margin-top: 32px;
+}
+
+.registerName input {
+  position: relative; 
+  left: -10%;
+  width: 200px;
+}
+
+@media only screen and (max-width: 375px) {
+  .register form {
+    bottom: 0;
+    top: 15vh;
+    left: 0;
+    width: 98vw;
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .register input {
+    width: 90%;
+    background-color: grey;
+    height: 30px;
+    font-weight: 700;
+  }
 }
