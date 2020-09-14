@@ -26,8 +26,6 @@ export default class UserRegisterPopUp extends Component {
           onSubmit={(e) => {
             e.preventDefault();
             handleRegister(this.state);
-            handleLogin(this.state);
-            history.push("/timeline");
           }}
         >
           <h1>Register</h1>

@@ -35,6 +35,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def user_picture
+    if @user.picture.attached?
+    @user.picture.purge
+    end
+    @user.picture.attach(params[:profilePhoto])
+    render json: @user
+  end
+
   # DELETE /users/1
   def destroy
     @user.destroy
@@ -48,6 +56,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :name, :phone_number)
+      params.require(:user).permit(:username, :email, :password, :name, :phone_number, :profilePhoto)
     end
 end
