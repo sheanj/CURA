@@ -46,7 +46,7 @@ export default class PhotoUpload extends Component {
     const { tags, image } = this.state;
     const { handleTextPost } = this.props;
     return (
-      <form autoComplete='off' action='' className='photoForm'>
+      <form autoComplete='off' action='' className="photoForm">
         <div className='inputHead'>
           <h6>Upload a Photo</h6>
           <button onClick={photoUpload}>
@@ -116,7 +116,7 @@ export default class PhotoUpload extends Component {
             <img src={image} className='imagePreview' />
           )}
         </div>
-      </form>
+      </form >
     );
   }
 }

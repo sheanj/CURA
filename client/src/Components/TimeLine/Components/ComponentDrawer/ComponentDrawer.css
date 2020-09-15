@@ -1,6 +1,17 @@
-
-
 .components {
-  position: relative;
+  width: 95%;
+  height: 100%;
+  /* position: relative; */
 }
+
+.components h3 {
+  padding-left: 10px;
+  color: grey;
+  padding-left: 5%;
+}
+
+.text .link {
+  margin-bottom: 15px;
+}
+
 

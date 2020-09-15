@@ -18,8 +18,10 @@ import TextInput from "../Components/InputComponents/TextInput/TextInput";
 import LinkInput from "../Components/InputComponents/LinkInput/LinkInput";
 import LinkPost from "../RenderComponent/Link/LinkPost";
 import TextPost from "../RenderComponent/Text/TextPost";
-import PhotoUpload from "../RenderComponent/Upload/PhotoUpload";
+import PhotoUpload from "../Components/InputComponents/PhotoUpload/PhotoUpload.jsx";
 import { processFile } from "../../Services/photoupload";
+import Widgets from "../../Widgets/Widgets";
+import ComponentDrawer from "../Components/ComponentDrawer/ComponentDrawer";
 
 class UserTimeLine extends Component {
   state = {
@@ -195,7 +197,7 @@ class UserTimeLine extends Component {
               {this.props.loggedUser && !timeline[0] ? (
                 <div className='welcome'>
                   <h3>
-                    Welcome {loggedUser.name} it's {date}
+                    Welcome, {loggedUser.username} it's {date}
                   </h3>
                 </div>
               ) : (
@@ -229,20 +231,9 @@ class UserTimeLine extends Component {
           </div>
           <div className='inputComponents'>
             {this.state.addComponent ? (
-              <div className='components'>
-                <h1>Add to Timeline</h1>
-                <div className='text'>
-                  <TextInput handleTextPost={handleTextPost} />
-                </div>
-                <div className='link'>
-                  <LinkInput handleSubmit={handleSubmit} />
-                </div>
-                <div className="photo">
-                  <PhotoUpload handleSubmit={handleSubmit}/>
-                </div>
-              </div>
+              <ComponentDrawer />
             ) : (
-              <></>
+              <Widgets />
             )}
           </div>
         </div>

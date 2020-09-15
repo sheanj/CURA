@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './ComponentDrawer.css'
-import TextInput from '../InputComponents/LinkInput/LinkInput.jsx'
+import TextInput from '../InputComponents/TextInput/TextInput.jsx'
 import LinkInput from '../InputComponents/LinkInput/LinkInput.jsx'
 import PhotoUpload from '../InputComponents/PhotoUpload/PhotoUpload.jsx'
 
@@ -10,7 +10,7 @@ export default class ComponentDrawer extends Component {
         const {handleTextPost, handleSubmit} = this.props
         return (
           <div className='components'>
-            <h1>Add to Timeline</h1>
+            <h3>ADD TO TIMELINE</h3>
             <div className='text'>
               <TextInput handleTextPost={handleTextPost} />
             </div>
