@@ -14,8 +14,8 @@ import {
 } from "../../Services/textpost.js";
 
 import UserHeader from '../UserHeader/UserHeader.jsx'
-import TextInput from "../TextInput/TextInput";
-import LinkInput from "../LinkInput/LinkInput";
+import TextInput from "../Components/InputComponents/TextInput/TextInput";
+import LinkInput from "../Components/InputComponents/LinkInput/LinkInput";
 import LinkPost from "../RenderComponent/Link/LinkPost";
 import TextPost from "../RenderComponent/Text/TextPost";
 import PhotoUpload from "../RenderComponent/Upload/PhotoUpload";
@@ -39,7 +39,6 @@ class UserTimeLine extends Component {
       this.setState({ username: this.props.loggedUser.username });
       this.fetchTimeline();
     }
-    // this.setFormData();
     this.displayDate();
   };
 
@@ -87,9 +86,9 @@ class UserTimeLine extends Component {
   };
 
   addComponent = () => {
-    this.setState({
-      addComponent: true,
-    });
+    this.setState(prevState => ({
+      addComponent: !prevState.addComponent,
+    }));
   };
 
   editPost = async (id) => {

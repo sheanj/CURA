@@ -67,3 +67,7 @@
   top: -103%;
   left: 0;
 }
+
+.drawer {
+  border: 1px solid black;
+}
