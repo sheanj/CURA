@@ -128,7 +128,7 @@ class UserTimeLine extends Component {
       hours =
         d.getHours().toString().length === 1
           ? "0" + d.getHours()
-          : d.getHours() - 12,
+          : d.getHours(),
       ampm = d.getHours() >= 12 ? "PM" : "AM",
       months = [
         "January",
@@ -197,7 +197,7 @@ class UserTimeLine extends Component {
               {this.props.loggedUser && !timeline[0] ? (
                 <div className='welcome'>
                   <h3>
-                    Welcome, {loggedUser.username} it's {date}
+                    Welcome, {loggedUser.username}. Click the plus sign above to get started.
                   </h3>
                 </div>
               ) : (
@@ -233,7 +233,10 @@ class UserTimeLine extends Component {
             {this.state.addComponent ? (
               <ComponentDrawer />
             ) : (
-              <Widgets />
+                <Widgets
+                  loggedUser={loggedUser}
+                  date={date}
+                />
             )}
           </div>
         </div>

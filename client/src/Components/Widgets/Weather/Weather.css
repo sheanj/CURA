@@ -1,0 +1,77 @@
+.weatherWidget {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.weatherHeader {
+    /* border: 1px solid black; */
+
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    height: 70%;
+}
+
+.temperature, .weatherSVG {
+    display: flex;
+    /* border: 1px solid black; */
+
+    width: 30%;
+}
+
+.temperature {
+    width: 100%;
+    /* border: 1px solid red; */
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+.temperature h1 {
+    font-size: 70px;
+    margin: 0;
+    padding-right: 5px;
+    color: grey;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.weatherSVG {
+    /* border: 1px solid black; */
+    width: 40%;
+    padding-top: 20px;
+    justify-content: flex-end;
+    /* margin-top: 20px; */
+    padding-left: 10px;
+}
+
+.weatherWidgetSubhead {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* border: 1px solid black; */
+    justify-self: flex-end;
+    width: 100%;
+    height: 20%;
+    text-align: right;
+}
+
+.weatherCondition h4 {
+    margin: 0;
+}
+
+.weatherCondition, .weatherLocation h4 {
+    margin: 0;
+    text-align: right;
+    padding-right: 8px;
+}
+
+.weatherLocation {
+    /* border: 1px solid black; */
+
+    /* text-align: right; */
+}
+

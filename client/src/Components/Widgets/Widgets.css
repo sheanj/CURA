@@ -5,7 +5,7 @@
   /* border: 1px solid black; */
   width: 95%;
   margin: 10px;
-  background-color: rgba(222, 228, 228, 0.902);
+  /* background-color: rgba(222, 228, 228, 0.902); */
 }
 
 .widgetHeader {
@@ -18,6 +18,17 @@
   margin-top: 5px;
   padding-left: 10px;
   color: grey;
+  padding-top: 10px;
+}
+
+.settings {
+
+}
+
+.settings button {
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
 
 .twoSquare {
@@ -29,12 +40,18 @@
 }
 
 .singleSquare {
+  display: flex;
+  justify-content: center;
   height: fit-content;
   /* border: 1px solid black; */
+  margin-bottom: 5%;
 }
 
 .leftWidget,
 .rightWidget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   width: 50%;
   /* border: 1px solid red; */
   height: 200px;
@@ -53,8 +70,8 @@
 
 .calendar {
   /* border: 1px solid black; */
-  height: 200px;
-  margin: 10px;
-  box-shadow: 20px 20px 60px #bdc2c2, -20px -20px 60px #ffffff;
-  border-radius: 50px;
+  /* height: 200px; */
+  /* margin: 10px; */
+  /* box-shadow: 20px 20px 60px #bdc2c2, -20px -20px 60px #ffffff;
+  border-radius: 50px; */
 }
