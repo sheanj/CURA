@@ -54,9 +54,6 @@ export default class PhotoUpload extends Component {
           </button>
         </div>
         <div className='photoIcon'>
-          <div class='con-bg'>
-            <img class='bg' src={this.state.temp} alt='' />
-          </div>
           {image == null ? (
             <>
               <svg

@@ -1,13 +1,14 @@
 import React, { Component, useEffect, useState } from "react";
 import CalendarWidget from "./Calendar/CalendarWidget";
-import ClockWidget from "./Clock/ClockWidget";
-import NewsWidget from "./News/NewsWidget";
-import Weather from "./Weather/Weather";
+import ClockWidget from "./Clock/ClockWidget.jsx";
+import NewsWidget from "./News/NewsWidget.jsx";
+import Weather from "./Weather/Weather.jsx";
 import "./Widgets.css";
+
 
 export default class Widgets extends Component {
   render() {
-    const { loggedUser, date } = this.props;
+    const { loggedUser, date, handleSubmit } = this.props;
     return (
       <div className='widgets'>
         <div className='widgetHeader'>
@@ -47,7 +48,7 @@ export default class Widgets extends Component {
           </div>
         </div>
         <div className='singleSquare'>
-          <NewsWidget />
+          <NewsWidget handleSubmit={handleSubmit} />
         </div>
         <div className='singleSquare'>
           <CalendarWidget />

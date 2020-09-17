@@ -17,15 +17,12 @@
 }
 
 .calHeader h3 {
-    margin: 0;
-    margin-top: 18px;
-    margin-bottom: 9px;
+    margin: 20px 20px 9px 10px;
 }
 
 .dates {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     padding-top: 5px;
     width: 100%;
     align-items: center;
@@ -34,8 +31,6 @@
 
 .week1, .week2, .week3, .week4, .week5, .week6 {
     display: flex;
-    /* align-self: center; */
-    /* border: 1px solid black; */
     margin-top: 1%;
     width: 80%;
     justify-content: space-around;
@@ -47,6 +42,21 @@
     border-radius: 50%;
     background-color: transparent;
     border: 1px solid black;
-    /* border: none; */
     justify-self: center;
+}
+
+#weekdays button {
+    border: none;
+}
+
+.previous button {
+    position: relative;
+    left: -185px;
+    bottom: -125px;
+}
+
+.next button {
+    position: relative;
+    left: 185px;
+    bottom: 80px;
 }

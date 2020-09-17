@@ -1,5 +1,5 @@
 .timeline {
-  margin-top: 10%;
+  margin-top: 15%;
   height: 100vh;
   width: 100%;
   height: inherit;
@@ -42,6 +42,7 @@
 }
 
 .inputComponents {
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -17,11 +17,9 @@ export default class TextPost extends Component {
       `https://api.linkpreview.net/?key=61a96cdca666e25e6b9937fffa190c2d&q=${e.target.value}`
     );
     const response = metadata.data;
-    console.log(process.env.REACT_APP_TOKEN);
     this.setState(prevState => ({
       ...response
     }))
-    console.log(this.state)
   };
 
   handleChange = (e) => {
@@ -32,14 +30,15 @@ export default class TextPost extends Component {
   }
 
   render() {
-    const { linkMetadata } = this;
-    const {tags} = this.state
+    const { linkMetadata, handleChange } = this;
+    const { tags } = this.state
+    const {handleSubmit} = this.props
     return (
       <form
         className="linkInput"
         onSubmit={(e) => {
           e.preventDefault();
-          this.props.handleSubmit(this.state)
+          handleSubmit(this.state)
         }}>
         <div className="inputHead">
         <h6>Add a new Link</h6>
@@ -51,7 +50,7 @@ export default class TextPost extends Component {
           name="tags"
           value={tags}
           placeholder="#Tags"
-          onChange={this.handleChange} />
+          onChange={handleChange} />
       </form>
     );
   }

@@ -3,10 +3,32 @@
     flex-direction: column;
     height: inherit;
     width: 95%;
+    /* height: inherit; */
     box-shadow: 20px 20px 60px #bdc2c2, -20px -20px 60px #ffffff;
-  border-radius: 50px;
+    border-radius: 50px;
 }
 
 .newsHeader {
-    
+    padding-left: 25px;
+    /* padding-top: 10px; */
+    /* height: 20%; */
+}
+
+.newsHeader h3 {
+    margin: 0;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.articleMap {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding-left: 25px;
+    margin-bottom: 4%;
+    margin-top: 4%;
+    width: 90%;
+    height: 100%;
 }

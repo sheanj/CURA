@@ -5,8 +5,11 @@ import {setClock} from "./ClockWidget.js";
 export default class ClockWidget extends Component {
   state = {
     date: this.getDate(),
+    angleSeconds: '', 
+    angleMinutes: '',
+    angleHours: ''
   };
-    
+
     getDate() {
         const newDate = new Date();
         const date = {};
@@ -17,7 +20,6 @@ export default class ClockWidget extends Component {
     }
     
     updateDate() {
-        console.log(this.state.date.minutes)
         this.setState(this.getDate());
   }
 
@@ -25,12 +27,11 @@ export default class ClockWidget extends Component {
     let angleSeconds = (this.state.seconds / 60) * 360;
     let angleMinutes = (this.state.minutes / 60) * 360;
     let angleHours = (this.state.hours / 12) * 360;
-    document.getElementById("js-seconds").style.transform =
-      "translate(-50%, -50%) rotate(" + angleSeconds + "deg)";
-    document.getElementById("js-minutes").style.transform =
-      "translate(-50%, -50%) rotate(" + angleMinutes + "deg)";
-    document.getElementById("js-hours").style.transform =
-      "translate(-50%, -50%) rotate(" + angleHours + "deg)";
+    this.setState({
+      angleSeconds: angleSeconds,
+      angleMinutes: angleMinutes, 
+      angleHours: angleHours
+    })
   }
 
   componentDidMount = async () => {
@@ -47,11 +48,24 @@ export default class ClockWidget extends Component {
 
   render() {
     const { setClock } = this;
+    const {angleHours, angleMinutes, angleSeconds} = this.state
     return (
       <div className='clock' onLoad={() => setClock()}>
-        <div id="js-hours" className='hand hour' data-hour-hand></div>
-        <div id="js-minutes" className='hand minute' data-minute-hand></div>
-        <div id="js-seconds" className='hand second' data-second-hand></div>
+        <div
+          id='js-hours'
+          className='hand hour'
+          style={{transform: "translate(-55%, -50%) rotate(" + angleHours + "deg)"}}
+        ></div>
+        <div
+          id='js-minutes'
+          className='hand minute'
+          style={{transform: "translate(-55%, -50%) rotate(" + angleMinutes + "deg)"}}
+        ></div>
+        <div
+          id='js-seconds'
+          className='hand second'
+          style={{transform: "translate(-55%, -50%) rotate(" + angleSeconds + "deg)"}}
+        ></div>
         <div className='number number1'>|</div>
         <div className='number number2'>|</div>
         <div className='number number3'>3</div>

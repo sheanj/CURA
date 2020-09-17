@@ -44,9 +44,14 @@ class UserTimeLine extends Component {
     this.displayDate();
   };
 
-  componentDidUpdate = (prevProps) => {
+  componentDidUpdate = async (prevProps) => {
     if (prevProps.loggedUser !== this.props.loggedUser) {
-      this.fetchTimeline();
+      let stateUpdate = await timeline();
+      this.setState({
+        timeline: stateUpdate
+      })
+    } else {
+      // console.log('error')
     }
   };
 
@@ -160,12 +165,7 @@ class UserTimeLine extends Component {
       " " +
       d.getDate() +
       ", " +
-      d.getFullYear() +
-      " " +
-      hours +
-      ":" +
-      minutes +
-      ampm;
+      d.getFullYear()
     this.setState({ date });
   };
 
@@ -190,7 +190,7 @@ class UserTimeLine extends Component {
             <div className='userTimeline'></div>
           </div>
           <div className='posts'>
-            {loggedUser ?
+            {loggedUser ? 
               <UserHeader addComponent={addComponent} loggedUser={loggedUser}/> :
               <UserHeader addComponent={addComponent} />}
             <div className='nullTimeLine'>
@@ -231,11 +231,16 @@ class UserTimeLine extends Component {
           </div>
           <div className='inputComponents'>
             {this.state.addComponent ? (
-              <ComponentDrawer />
+              <ComponentDrawer
+                handleTextPost={handleTextPost}
+                handleSubmit={handleSubmit}
+
+              />
             ) : (
                 <Widgets
                   loggedUser={loggedUser}
                   date={date}
+                  handleSubmit={handleSubmit}
                 />
             )}
           </div>

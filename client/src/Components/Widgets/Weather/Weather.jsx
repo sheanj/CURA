@@ -1,13 +1,71 @@
-import React, { Component } from 'react'
-import './Weather.css'
+import React, { Component } from "react";
+import "./Weather.css";
+import axios from "axios";
+import { FaZhihu } from "react-icons/fa";
 
 export default class Weather extends Component {
-    render() {
-        return (
+  constructor() {
+    super();
+    this.state = {
+      city: "",
+      temperature: "",
+      conditions: "",
+      lat: null,
+      long: "",
+      locationAuth: false
+    };
+    this.getLocation = this.getLocation.bind(this);
+  }
+
+  componentDidMount() { 
+    if (this.state.lat)
+    this.getWeather();
+  }
+
+  getWeather = async () => {
+    const response = await axios.get(
+      // `https://api.openweathermap.org/data/2.5/weather?appid=5dcf5aa98bca09f4ffca5759ba0cdd05`
+      `https://api.openweathermap.org/data/2.5/weather?appid=5dcf5aa98bca09f4ffca5759ba0cdd05&lat=${this.state.lat}&lon=${this.state.long}&units=imperial`
+    );
+    let weather = response.data;
+    let tempRound = Math.round(weather.main.temp);
+    this.setState({
+      city: weather.name,
+      temperature: tempRound,
+      conditions: weather.weather[0].main,
+    });
+  };
+
+  getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.getCoordinates);
+    } else {
+      alert("Could not retrieve your position, try again.");
+    }
+  };
+
+  getCoordinates = (position) => {
+    this.setState({
+      lat: position.coords.latitude,
+      long: position.coords.longitude,
+    });
+    this.getWeather();
+  };
+
+  render() {
+    const { city, temperature, conditions, lat } = this.state;
+    const { getLocation } = this;
+    return (
+      <>
+        {lat == null ? (
+          <div className='weatherWidgetCondition'>
+            <button onClick={getLocation}>Click to Enable Weather</button>
+          </div>
+        ) : (
           <div className='weatherWidget'>
             <div className='weatherHeader'>
-                    <div className='temperature'>
-                        <h1>72°</h1>
+              <div className='temperature'>
+                <h1>{temperature}°</h1>
               </div>
               <div className='weatherSVG'>
                 <svg
@@ -74,10 +132,16 @@ export default class Weather extends Component {
               </div>
             </div>
             <div className='weatherWidgetSubhead'>
-              <div className='weatherCondition'><h4>Partly Cloudy</h4></div>
-              <div className='weatherLocation'><h4>Brooklyn, New York</h4></div>
+              <div className='weatherCondition'>
+                <h4>{conditions}</h4>
+              </div>
+              <div className='weatherLocation'>
+                <h4>{city}</h4>
+              </div>
             </div>
           </div>
-        );
-    }
+        )}
+      </>
+    );
+  }
 }
