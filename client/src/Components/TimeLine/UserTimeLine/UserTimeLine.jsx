@@ -194,7 +194,7 @@ class UserTimeLine extends Component {
               <UserHeader addComponent={addComponent} loggedUser={loggedUser}/> :
               <UserHeader addComponent={addComponent} />}
             <div className='nullTimeLine'>
-              {this.props.loggedUser && !timeline[0] ? (
+              {this.props.loggedUser && !timeline[0]  ? (
                 <div className='welcome'>
                   <h3>
                     Welcome, {loggedUser.username}. Click the plus sign above to get started.

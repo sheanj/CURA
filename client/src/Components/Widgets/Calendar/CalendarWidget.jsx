@@ -1,33 +1,21 @@
 import React, { Component } from "react";
 import "./CalendarWidget.css";
+// import { FaAngleLeft } from "font-awesome";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 export default class CalendarWidget extends Component {
   state = {
-    month: "",
-    day: "",
-    year: "",
+    currentMonth: "",
+    currentDays: '',
   };
 
   componentDidMount() {
-    this.setState({
-      month: this.getMonth(),
-    });
-    console.log(this.state.month)
-  }
-
-  componentDidUpdate = async (prevState) => { 
-    if (prevState.month !== this.state.month) {
-      let prevMonth = await this.getPreviousMonth();
-      this.setState({
-        month: prevMonth
-      })
-    } else {
-      
-    }
+    this.getMonth();
+    this.getDays();
   }
 
   getMonth = () => {
-    let months = [
+    const months = [
       "January",
       "February",
       "March",
@@ -41,153 +29,71 @@ export default class CalendarWidget extends Component {
       "November",
       "December",
     ];
-    let currentMonth = new Date().getMonth();
-    return months[currentMonth];
+    const date = new Date();
+    const currentMonth = months[date.getMonth()];
+    const currentDate = date.toDateString();
+    this.setState({
+      currentMonth: currentMonth,
+      currentDate: currentDate,
+    });
   };
 
-  getPreviousMonth = () => {
-    let months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    let previousMonth = new Date().getMonth - 1;
-    return months[previousMonth]
-  };
+  getDays = () => {
+    const date = new Date();
+    const days = [];
+    date.setDate(1)
+    const prevLastDay = new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      0
+    ).getDate();
+    const lastDay = new Date(
+      date.getFullYear(),
+      date.getMonth() + 1,
+      0
+    ).getDate();
+    const nextDays = 7 - date.getDay() - 1;
+    for (let x = date.getDay(); x > 0; x--) {
+      days.push(`${prevLastDay - x + 1}`);
+    }
+    for (let i = 1; i <= lastDay; i++) {
+      days.push(`${i}`);
+    }
+    for (let j = 1; j < nextDays; j++) {
+      days.push(`${j}`);
+    }
+    console.log(days)
+    this.setState({
+      currentDays: days
+    })
+  }
 
-  // displayDate = () => {
-  //   let date = new Date(),
 
-  //   const firstDayIndex = date.setDay()
-  //   const prevLastDay = new Date(date.getFullYear(), date.getMonth, 0).getDate()
-  //   const lastDayIndex = new Date(
-  //     date.getFullYear(),
-  //     date.getMonth() + 1,
-  //     0
-  //   ).getDay();
-
-  //   const nextDays = 7 - lastDayIndex - 1
-
-  //     months = [
-  //       "January",
-  //       "February",
-  //       "March",
-  //       "April",
-  //       "May",
-  //       "June",
-  //       "July",
-  //       "August",
-  //       "September",
-  //       "October",
-  //       "November",
-  //       "December",
-  //     ],
-  //     // days = [
-
-  //     // ];
-
-  //   for (let j = 1; j <= nextDays; j++) {
-  //     days += `<div className="next-date>${j}</div>`
-  //   }
-
-  //   for (let x = firstDayIndex; x > 0; x--) {
-  //     days += `<div class="prev-date>${prevLastDay - x + 1}</div>`
-  //   }
-
-  //   for (let i = 1; i <= lastDay; i++) {
-  //     if (i === new Date.getDate() && date.getMonth === new Date.getMonth()) {
-  //       days += `<div className="today">${i}</div>`
-  //     } else {
-
-  //       days += `<div>${i}</div>`
-  //     }
-  //   }
-  //   //get last month
-  //   // date.setMonth(date.getMonth() - 1)
-  //   //get next month
-  //   // date.setMonth(date.getMonth() + 1)
-
-  //   this.setState({
-  //     month: months[date.getMonth()],
-  //     day: days[date.getDay()],
-  //     year: date.getFullYear
-  //   });
-  // };
+  //write change functions using setMonth()
 
   render() {
-    const { month } = this.state;
+    const { currentMonth, currentDate } = this.state;
     return (
       <div className='calendar'>
-        <div className='calHeader'>
-          <div className='month'>
-            <h3>{month}</h3>
+        <div className='month'>
+          <FaAngleLeft />
+          <div className='date'>
+            <h1>{currentMonth}</h1>
           </div>
-          <div className='year'>
-            <h3>2020</h3>
-          </div>
+          <FaAngleRight />
         </div>
-        <div className='dates'>
-          <div className='previous'>
-            <button onClick={this.getPreviousMonth}>P</button>
-          </div>
-          <div id='weekdays' className='week1'>
-            <button>S</button>
-            <button>M</button>
-            <button>T</button>
-            <button>W</button>
-            <button>T</button>
-            <button>F</button>
-            <button>S</button>
-          </div>
-          <div className='week2'></div>
-          <div className='week3'>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-          </div>
-          <div className='week4'>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-          </div>
-          <div className='week5'>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-          </div>
-          <div className='week6'>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-          </div>
-          <div className='next'>
-            <button>N</button>
-          </div>
+        <div className='weekdays'>
+          <div className='sunday'>Sun</div>
+          <div className='monday'>Mon</div>
+          <div className='tuesday'>Tues</div>
+          <div className='wednesday'>Wed</div>
+          <div className='thursday'>Thur</div>
+          <div className='friday'>Fri</div>
+          <div className='saturday'>Sat</div>
+        </div>
+        <div className='days'>
+          {this.state.currentDays &&
+            this.state.currentDays.map((day) => <div>{day}</div>)}
         </div>
       </div>
     );

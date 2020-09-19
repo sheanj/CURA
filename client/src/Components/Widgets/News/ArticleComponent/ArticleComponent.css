@@ -16,8 +16,7 @@
   flex-direction: column;
   /* box-shadow: 20px 20px 60px #bdc2c2, -20px -20px 60px #ffffff; */
   border-radius: 25px;
-  margin-bottom: 5%;
-  margin: 2%;
+  margin: 2% 0 -2% 3%;
 }
 
 .articleCard img {
@@ -38,7 +37,7 @@
 
 .articleCard h3 {
     margin: 0;
-    font-size: .85em;
+    font-size: 1rem;
     width: 100%;
 }
 

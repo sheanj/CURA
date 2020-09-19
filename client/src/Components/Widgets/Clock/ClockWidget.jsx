@@ -51,7 +51,7 @@ export default class ClockWidget extends Component {
     const {angleHours, angleMinutes, angleSeconds} = this.state
     return (
       <div className='clock' onLoad={() => setClock()}>
-        <div
+        {this.state.angleSeconds !== null ? <><div
           id='js-hours'
           className='hand hour'
           style={{transform: "translate(-55%, -50%) rotate(" + angleHours + "deg)"}}
@@ -65,7 +65,7 @@ export default class ClockWidget extends Component {
           id='js-seconds'
           className='hand second'
           style={{transform: "translate(-55%, -50%) rotate(" + angleSeconds + "deg)"}}
-        ></div>
+        ></div></> : <></>}
         <div className='number number1'>|</div>
         <div className='number number2'>|</div>
         <div className='number number3'>3</div>

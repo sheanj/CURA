@@ -9,9 +9,8 @@
 }
 
 .newsHeader {
-    padding-left: 25px;
-    /* padding-top: 10px; */
-    /* height: 20%; */
+    margin-left: 25px;
+
 }
 
 .newsHeader h3 {
@@ -27,8 +26,6 @@
     overflow-y: hidden;
     overflow-x: scroll;
     padding-left: 25px;
-    margin-bottom: 4%;
-    margin-top: 4%;
     width: 90%;
     height: 100%;
 }

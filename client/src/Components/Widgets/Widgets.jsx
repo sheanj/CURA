@@ -11,7 +11,7 @@ export default class Widgets extends Component {
     const { loggedUser, date, handleSubmit } = this.props;
     return (
       <div className='widgets'>
-        <div className='widgetHeader'>
+        {/* <div className='widgetHeader'>
           <h3>{date}</h3>
           <div className='settings'>
             <button>
@@ -38,7 +38,7 @@ export default class Widgets extends Component {
               </svg>
             </button>
           </div>
-        </div>
+        </div> */}
         <div className='twoSquare'>
           <div className='leftWidget'>
             <ClockWidget />
