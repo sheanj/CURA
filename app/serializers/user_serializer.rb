@@ -3,8 +3,5 @@ class UserSerializer < ActiveModel::Serializer
 
 
   def profilePhoto
-
       object.profilePhoto.service_url if object.profilePhoto.attached?
-
-  end
 end

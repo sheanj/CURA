@@ -9,8 +9,12 @@ export default class UserRegisterPopUp extends Component {
     phone_number: "",
     email: "",
     password: "",
-    profilePhoto: ""
+    profilePhoto: null,
   };
+
+  // componentDidMount() {
+  //   this.handlePictureChange();
+  // }
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,20 +23,39 @@ export default class UserRegisterPopUp extends Component {
     });
   };
 
-  handlePictureChange = async (e) => {
-    const { files } = e.target;
-    let picture = new FormData();
-    console.log(picture.append('picture', files[0]))
-    this.setState({
-      profilePhoto: picture
-    })
-    console.log(this.state.profilePhoto)
-  }
+  // handlePictureChange = async (e) => {
+  //   const { name, value, file } = e.target;
+  //   let picture = new FormData();
+  //   console.log(picture.append('picture', file))
+  //   this.setState({
+  //     profilePhoto: picture
+  //   })
+  //   console.log(this.state.profilePhoto)
+  // }
+
+  imageHandler = (e) => {
+    e.preventDefault();
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState == 2) {
+        this.setState({ profilePhoto: reader.result });
+        console.log('stored in state successfully ' + this.state.profilePhoto);
+      } 
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
 
   render() {
-    const { name, username, phone_number, email, password, profilePhoto } = this.state;
+    const {
+      name,
+      username,
+      phone_number,
+      email,
+      password,
+      profilePhoto,
+    } = this.state;
     const { handleRegister, history, handleLogin } = this.props;
-    const {handlePictureChange, handleChange, } = this
+    const { imageHandler, handleChange } = this;
     return (
       <div className='register'>
         <div className='registerHeader'></div>
@@ -46,11 +69,12 @@ export default class UserRegisterPopUp extends Component {
             <input
               type='file'
               className='profilePhotoUpload'
-              name='profilePhoto'
-              value={profilePhoto}
-              onChange={handlePictureChange}
+              // name='profilePhoto'
+              // value={profilePhoto}
+              onChange={imageHandler}
             />
-            <img src={PFP} className='profilePhotoBlank' />
+            {profilePhoto == null ? <img src={PFP} className='profilePhotoBlank' /> : 
+            <img src={profilePhoto} />}
             <div className='nameRegisterInput'>
               <input
                 className='registerName'
