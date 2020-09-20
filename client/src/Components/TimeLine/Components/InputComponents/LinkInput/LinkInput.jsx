@@ -20,6 +20,7 @@ export default class TextPost extends Component {
     this.setState(prevState => ({
       ...response
     }))
+    console.log(response)
   };
 
   handleChange = (e) => {

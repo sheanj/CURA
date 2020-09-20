@@ -62,7 +62,6 @@ export default class CalendarWidget extends Component {
     for (let j = 1; j < nextDays; j++) {
       days.push(`${j}`);
     }
-    console.log(days)
     this.setState({
       currentDays: days
     })

@@ -10,6 +10,7 @@
     border-radius: 50px;
       box-shadow: inset 0px 0px 15px #888888,
       0px 0px 15px #888888;
+      font-size: 1.5rem;
 }
 
 .clock .number {

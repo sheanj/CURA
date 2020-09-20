@@ -33,7 +33,7 @@ class UserTimeLine extends Component {
     photoUpload: ''
   };
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     if (!localStorage.getItem("authToken")) {
       this.props.history.push("/login");
     }
