@@ -68,7 +68,7 @@
 }
 
 .days div:hover:not(.today) {
-    background-color: #262626;
+    background-color: #ddd9d9;
     /* border: .2rem solid #777; */
     cursor: pointer;
 }
