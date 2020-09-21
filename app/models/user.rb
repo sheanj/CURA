@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # include ActiveStorageSupport:SupportForBase64
 
   has_secure_password
-  has_one_attached :profilePhoto 
+  # has_one_attached :profilePhoto 
     # validates :profilePhoto, content_type: [:png, :jpeg, :jpg, :gif]
   has_many :linkposts
   has_many :textposts

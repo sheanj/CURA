@@ -25,7 +25,7 @@ export default class PhotoUpload extends Component {
   imageHandler = (e) => {
     const reader = new FileReader();
     reader.onload = () => {
-      if (reader.readyState == 2) {
+      if (reader.readyState === 2) {
         this.setState({ image: reader.result });
         console.log(this.state.image);
       }

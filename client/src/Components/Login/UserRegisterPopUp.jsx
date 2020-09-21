@@ -9,12 +9,7 @@ export default class UserRegisterPopUp extends Component {
     username: "",
     email: "",
     password: "",
-    profilePhoto: null,
   };
-
-  // componentDidMount() {
-  //   this.handlePictureChange();
-  // }
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,39 +17,6 @@ export default class UserRegisterPopUp extends Component {
       [name]: value,
     });
   };
-
-  // handlePictureChange = async (e) => {
-  //   const { name, value, file } = e.target;
-  //   let picture = new FormData();
-  //   console.log(picture.append('picture', file))
-  //   this.setState({
-  //     profilePhoto: picture
-  //   })
-  //   console.log(this.state.profilePhoto)
-  // }
-
-  imageHandler = async (e) => {
-    e.preventDefault();
-    const reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-    reader.onload = () => {
-      if (reader.readyState == 2) {
-        this.setState({ profilePhoto: reader.result });
-        this.userPicture(reader.result)
-      } 
-    };
-  };
-
-userPicture = async (userData, userId) => {
-  const response = await api.post(`/users/${userId}/picture`, userData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
-  console.log(response.data)
-  return response.data;
-};
-
 
   render() {
     const {
@@ -75,16 +37,6 @@ userPicture = async (userData, userId) => {
             handleRegister(this.state);
           }}
         >
-          <div className='pfpRegisterUpload'>
-            <input
-              type='file'
-              className='profilePhotoUpload'
-              // name='profilePhoto'
-              // value={profilePhoto}
-              onChange={imageHandler}
-            />
-            {profilePhoto == null ? <img src={PFP} className='profilePhotoBlank' /> : 
-            <img src={profilePhoto} />}
             <div className='nameRegisterInput'>
               <input
                 className='registerName'
@@ -95,7 +47,6 @@ userPicture = async (userData, userId) => {
                 onChange={handleChange}
               />
             </div>
-          </div>
           <input
             type='text'
             placeholder='Create a username...'
@@ -103,13 +54,6 @@ userPicture = async (userData, userId) => {
             value={username}
             onChange={handleChange}
           />
-          {/* <input
-            type='text'
-            placeholder="What's your phone number?"
-            name='phone_number'
-            value={phone_number}
-            onChange={handleChange}
-          /> */}
           <input
             type='text'
             placeholder='Please provide your email...'

@@ -80,16 +80,9 @@
 
 .nameRegisterInput input {
   position: relative;
-  left: -10%;
+  left: -4%;
   display: flex;
-  width: 218px;
   margin-top: 20px;
-}
-
-.registerName input {
-  position: relative;
-  left: -10%;
-  width: 200px;
 }
 
 .register form input {
