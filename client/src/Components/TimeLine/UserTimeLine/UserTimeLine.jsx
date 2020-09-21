@@ -29,16 +29,19 @@ class UserTimeLine extends Component {
     addComponent: false,
     editComponent: false,
     username: null,
+    profilePhoto: null,
     date: "",
     photoUpload: ''
   };
 
   componentDidMount = async () => {
     if (!localStorage.getItem("authToken")) {
-      this.props.history.push("/login");
+      this.props.history.push("/");
     }
     if (this.props.loggedUser) {
-      this.setState({ username: this.props.loggedUser.username });
+      this.setState({
+        username: this.props.loggedUser.username,
+      });
       this.fetchTimeline();
     }
     this.displayDate();

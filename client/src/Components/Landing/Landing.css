@@ -120,9 +120,17 @@ h2 {
   border-radius: 50px;
 }
 
-.landingScreenTwo img {
+.landingScreenTwo {
   margin-top: 5%;
+  width: 100%;
+}
+
+.timelinePreview {
   width: 50%;
+}
+
+.landingScreenTwo img {
+  width: 1000px;
 }
 
 .timeLinePreviewCopy {

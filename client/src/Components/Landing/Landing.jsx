@@ -62,7 +62,7 @@ class Landing extends Component {
           className='landingScreenTwo'
           style={{ height: this.state.windowHeight }}
         >
-          <img src={TimeLinePreview} />
+          <div className="timelinePreview"><img src={TimeLinePreview} /></div>
           <div className="timeLinePreviewCopy">
             <h1>Organize Each Day with <br />Timeline</h1>
             <h4>Render notes and links, and upload photos to your daily Timeline</h4>

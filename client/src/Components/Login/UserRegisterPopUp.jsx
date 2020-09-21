@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./UserRegisterPopUp.css";
 import PFP from "../../Assets/PFP.png";
+import api from '../Services/api-helper'
 
 export default class UserRegisterPopUp extends Component {
   state = {
     name: "",
     username: "",
-    phone_number: "",
     email: "",
     password: "",
     profilePhoto: null,
@@ -33,23 +33,33 @@ export default class UserRegisterPopUp extends Component {
   //   console.log(this.state.profilePhoto)
   // }
 
-  imageHandler = (e) => {
+  imageHandler = async (e) => {
     e.preventDefault();
     const reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
     reader.onload = () => {
       if (reader.readyState == 2) {
         this.setState({ profilePhoto: reader.result });
-        console.log('stored in state successfully ' + this.state.profilePhoto);
+        this.userPicture(reader.result)
       } 
     };
-    reader.readAsDataURL(e.target.files[0]);
   };
+
+userPicture = async (userData, userId) => {
+  const response = await api.post(`/users/${userId}/picture`, userData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  console.log(response.data)
+  return response.data;
+};
+
 
   render() {
     const {
       name,
       username,
-      phone_number,
       email,
       password,
       profilePhoto,
@@ -93,13 +103,13 @@ export default class UserRegisterPopUp extends Component {
             value={username}
             onChange={handleChange}
           />
-          <input
+          {/* <input
             type='text'
             placeholder="What's your phone number?"
             name='phone_number'
             value={phone_number}
             onChange={handleChange}
-          />
+          /> */}
           <input
             type='text'
             placeholder='Please provide your email...'
