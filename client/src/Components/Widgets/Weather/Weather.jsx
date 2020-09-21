@@ -23,10 +23,11 @@ export default class Weather extends Component {
   }
 
   getWeather = async () => {
+    let weatherKey = process.env.REACT_APP_WEATHER_WIDGET_API_TOKEN;
     const response = await axios.get(
-      // `https://api.openweathermap.org/data/2.5/weather?appid=5dcf5aa98bca09f4ffca5759ba0cdd05`
-      `https://api.openweathermap.org/data/2.5/weather?appid=5dcf5aa98bca09f4ffca5759ba0cdd05&lat=${this.state.lat}&lon=${this.state.long}&units=imperial`
+      `https://api.openweathermap.org/data/2.5/weather?appid=${weatherKey}&lat=${this.state.lat}&lon=${this.state.long}&units=imperial`
     );
+    console.log(process.env.REACT_APP_WEATHER_WIDGET_API_TOKEN)
     let weather = response.data;
     let tempRound = Math.round(weather.main.temp);
     this.setState({
