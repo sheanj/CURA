@@ -5,9 +5,9 @@ import {
   processFile,
   handlePhotoUpload,
   handleClickRemove,
-} from "../../../../Services/photoupload";
-import { photoUpload } from "../../../../Services/timeline";
-import api from "../../../../Services/api-helper.js";
+} from "../../../Services/photoupload";
+import { photoUpload } from "../../../Services/timeline";
+import api from "../../../Services/api-helper.js";
 
 export default class PhotoUpload extends Component {
   state = {
@@ -25,7 +25,7 @@ export default class PhotoUpload extends Component {
   imageHandler = (e) => {
     const reader = new FileReader();
     reader.onload = () => {
-      if (reader.readyState == 2) {
+      if (reader.readyState === 2) {
         this.setState({ image: reader.result });
         console.log(this.state.image);
       }

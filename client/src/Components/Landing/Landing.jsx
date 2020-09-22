@@ -1,29 +1,74 @@
 import React, { Component } from "react";
-import "../Landing/Landing.css";
+import "./Landing.css";
 import LoginPopUp from "../Login/LoginPopUp";
 import UserRegisterPopUp from "../Login/UserRegisterPopUp";
-import { withRouter, Route } from 'react-router-dom';
-import LandingImg from '../../Assets/Landing/LANDING.png'
+import { withRouter, Route } from "react-router-dom";
+import ClockWidget from "../Widgets/Clock/ClockWidget.jsx";
+import CalendarWidget from "../Widgets/Calendar/CalendarWidget";
+import Weather from "../Widgets/Weather/Weather";
+import TimeLinePreview from '../../Assets/Landing/TimeLinePreview.png'
 
 class Landing extends Component {
+  state = {
+    windowHeight: '',
+    loginComponent: false
+  }
+
+  componentDidMount() {
+    this.setState({
+      windowHeight: this.getWindowHeight()
+    })
+  }
+
+  launchLoginScreen = () => {
+    this.setState((prevState) => ({
+      loginComponent: !prevState.loginComponent
+    }))
+  }
+  getWindowHeight = () => {
+    return window.innerHeight - 79
+  }
   render() {
     return (
-      <div className="landingContainer">
-        <div className="landing blur">
-          <div className="landingImg"><img src={LandingImg} alt="cura preview"/></div>
-          <div className="preview">
-            <p>
-              CURA is your personal data management application. Every day we
-              traverse the web on multiple devices - reading articles, watching
-              videos, setting tasks, and sharing our thoughts. Each of these
-              actions often requires its own application. Where did I watch that
-              video last week? Who published that article I read last month?
-              Which app did I write my grocery list in? Where did I write that
-              note? CURA aims to organize these events in one seamless timeline
-              so that nothing is ever on the tip of your tongue, but just a
-              click away. Write notes, save articles, create task lists, and
-              catalogue all your digital media with CURA.
-            </p>
+      <div className='landingContainer'>
+        <div
+          className='landingScreenOne'
+          style={{ height: this.state.windowHeight }}
+        >
+          <div className='landingRowOne'>
+            <div className='weatherPreview'>
+              <Weather />
+            </div>
+          </div>
+          <div className='landingHeader'>
+            <div className='clockPreview'>
+              <ClockWidget />
+            </div>
+            <div className='landingMessage'>
+              <h2>Your days are hectic.</h2>
+              <h1>Manage them.</h1>
+              <div className='cta'>
+                <button onClick={this.props.registerPopOver}>SIGN UP</button>
+              </div>
+            </div>
+          </div>
+          <div className='landingRowThree'>
+            <div className='calendarPreview'>
+              <CalendarWidget />
+            </div>
+          </div>
+        </div>
+        <div
+          className='landingScreenTwo'
+          style={{ height: this.state.windowHeight }}
+        >
+          <div className="timelinePreview"><img src={TimeLinePreview} /></div>
+          <div className="timeLinePreviewCopy">
+            <h1>Organize Each Day with <br />Timeline</h1>
+            <h4>Render notes and links, and upload photos to your daily Timeline</h4>
+            <h4>Helpful widgets like News and Weather keep you up to date on current events.</h4>
+              <h4>CURA is your hub for daily digital management.</h4>
+            <h3></h3>
           </div>
         </div>
         {this.props.loginPopUp ? (
@@ -33,14 +78,14 @@ class Landing extends Component {
         )}
         {this.props.registerPopUp ? (
           <Route
-          render={(props) => (
-            <UserRegisterPopUp
-              {...this.props}
-              {...props}
-              handleRegister={this.props.handleRegister}
-            />
-          )}
-        />
+            render={(props) => (
+              <UserRegisterPopUp
+                {...this.props}
+                {...props}
+                handleRegister={this.props.handleRegister}
+              />
+            )}
+          />
         ) : (
           <></>
         )}

@@ -7,7 +7,7 @@ import {
   registerUser,
   removeToken,
   verifyUser,
-} from "./Services/auth";
+} from "./Components/Services/auth";
 
 import Main from "./Components/Main/Main";
 

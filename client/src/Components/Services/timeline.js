@@ -11,3 +11,12 @@ export const photoUpload = async (e) => {
   const userData = new FormData();
   return await api.post("/users", userData)  
 }
+
+export const userPicture = async (userData, userId) => {
+  const response = await api.post(`/users/${userId}/picture`, userData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return response.data;
+};

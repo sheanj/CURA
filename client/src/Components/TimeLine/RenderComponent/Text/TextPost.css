@@ -14,9 +14,9 @@
 }
 
 .textPost img {
-  position: fixed;
-  left: -9%;
-  bottom: 79%;
+  position: relative;
+  left: -7%;
+  bottom: 70%;
   height: auto;
   width: 60px;
 }

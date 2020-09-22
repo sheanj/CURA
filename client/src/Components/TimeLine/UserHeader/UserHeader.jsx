@@ -9,8 +9,8 @@ export default class UserHeader extends Component {
     return (
       <div className='header'>
         <div className='userPhoto'>
-          {loggedUser ? (
-            <img src={Logo} />
+          {loggedUser.profilePhoto ? (
+            <img src={loggedUser.profilePhoto} />
           ) : (
             <div className='pfpUpload'>
               <input type='file' className='profilePhotoUpload' />

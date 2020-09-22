@@ -1,19 +1,26 @@
+.register {
+  display: flex;
+}
+
 .register form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  left: 43%;
-  top: 8%;
-  width: fit-content;
+  left: 40vw;
+  top: 25vh;
+  width: 30rem;
   height: fit-content;
   margin: auto;
   padding: 2%;
   border-radius: 20px;
-  margin-top: 5vh;
+  padding-top: 5rem;
   background-color: rgba(222, 228, 228, 0.9);
   backdrop-filter: blur(5px);
   z-index: 5;
-  filter: drop-shadow(0px 50px 50px grey) 
+  filter: drop-shadow(0px 50px 50px grey);
+  box-shadow: inset 0px 0px 15px #888888;
 }
 
 .register h1 {
@@ -30,7 +37,7 @@
 
 .register button {
   align-self: center;
-  background-color: #25283D;
+  background-color: #25283d;
   color: white;
   font-weight: 600;
   border: none;
@@ -43,15 +50,16 @@
 .pfpRegisterUpload {
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
   width: 300px;
+  margin-bottom: 2%;
 }
 
 .profilePhotoUpload {
-  width: 50px;
-  height: 50px;
-  border: 1px solid black;
+  width: 100rem;
+  height: 100rem;
   z-index: 10;
+  border: 1px solid red;
+  cursor: pointer;
 }
 
 .pfpRegisterUpload img {
@@ -61,6 +69,7 @@
   height: 50px;
   margin: 0;
   border-radius: 40px;
+  object-fit: cover;
 }
 
 .pfpRegisterUpload input {
@@ -70,16 +79,18 @@
 }
 
 .nameRegisterInput input {
+  position: relative;
+  left: -4%;
   display: flex;
-  width: 250px;
-  /* border: 1px solid black; */
-  margin-top: 32px;
+  margin-top: 20px;
 }
 
-.registerName input {
-  position: relative; 
-  left: -10%;
-  width: 200px;
+.register form input {
+  height: 1.5rem;
+}
+
+::placeholder {
+  font-size: 1.25rem;
 }
 
 @media only screen and (max-width: 375px) {

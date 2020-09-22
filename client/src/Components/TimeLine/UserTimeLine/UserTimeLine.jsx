@@ -1,25 +1,27 @@
 import React, { Component } from "react";
 import "./UserTimeLine.css";
 import { withRouter } from "react-router-dom";
-import { timeline } from "../../../Services/timeline";
+import { timeline } from "../../Services/timeline";
 import {
   postLink,
   deleteLinkPost,
   putLinkPost,
-} from "../../../Services/linkpost";
+} from "../../Services/linkpost";
 import {
   postText,
   deleteTextPost,
   putText,
-} from "../../../Services/textpost.js";
+} from "../../Services/textpost.js";
 
 import UserHeader from '../UserHeader/UserHeader.jsx'
-import TextInput from "../TextInput/TextInput";
-import LinkInput from "../LinkInput/LinkInput";
+import TextInput from "../Components/InputComponents/TextInput/TextInput";
+import LinkInput from "../Components/InputComponents/LinkInput/LinkInput";
 import LinkPost from "../RenderComponent/Link/LinkPost";
 import TextPost from "../RenderComponent/Text/TextPost";
-import PhotoUpload from "../RenderComponent/Upload/PhotoUpload";
-import { processFile } from "../../../Services/photoupload";
+import PhotoUpload from "../Components/InputComponents/PhotoUpload/PhotoUpload.jsx";
+import { processFile } from "../../Services/photoupload";
+import Widgets from "../../Widgets/Widgets";
+import ComponentDrawer from "../Components/ComponentDrawer/ComponentDrawer";
 
 class UserTimeLine extends Component {
   state = {
@@ -27,25 +29,32 @@ class UserTimeLine extends Component {
     addComponent: false,
     editComponent: false,
     username: null,
+    profilePhoto: null,
     date: "",
     photoUpload: ''
   };
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     if (!localStorage.getItem("authToken")) {
-      this.props.history.push("/login");
+      this.props.history.push("/");
     }
     if (this.props.loggedUser) {
-      this.setState({ username: this.props.loggedUser.username });
+      this.setState({
+        username: this.props.loggedUser.username,
+      });
       this.fetchTimeline();
     }
-    // this.setFormData();
     this.displayDate();
   };
 
-  componentDidUpdate = (prevProps) => {
+  componentDidUpdate = async (prevProps) => {
     if (prevProps.loggedUser !== this.props.loggedUser) {
-      this.fetchTimeline();
+      let stateUpdate = await timeline();
+      this.setState({
+        timeline: stateUpdate
+      })
+    } else {
+      // console.log('error')
     }
   };
 
@@ -87,9 +96,9 @@ class UserTimeLine extends Component {
   };
 
   addComponent = () => {
-    this.setState({
-      addComponent: true,
-    });
+    this.setState(prevState => ({
+      addComponent: !prevState.addComponent,
+    }));
   };
 
   editPost = async (id) => {
@@ -127,7 +136,7 @@ class UserTimeLine extends Component {
       hours =
         d.getHours().toString().length === 1
           ? "0" + d.getHours()
-          : d.getHours() - 12,
+          : d.getHours(),
       ampm = d.getHours() >= 12 ? "PM" : "AM",
       months = [
         "January",
@@ -159,12 +168,7 @@ class UserTimeLine extends Component {
       " " +
       d.getDate() +
       ", " +
-      d.getFullYear() +
-      " " +
-      hours +
-      ":" +
-      minutes +
-      ampm;
+      d.getFullYear()
     this.setState({ date });
   };
 
@@ -189,14 +193,14 @@ class UserTimeLine extends Component {
             <div className='userTimeline'></div>
           </div>
           <div className='posts'>
-            {loggedUser ?
+            {loggedUser ? 
               <UserHeader addComponent={addComponent} loggedUser={loggedUser}/> :
               <UserHeader addComponent={addComponent} />}
             <div className='nullTimeLine'>
-              {this.props.loggedUser && !timeline[0] ? (
+              {this.props.loggedUser && !timeline[0]  ? (
                 <div className='welcome'>
                   <h3>
-                    Welcome {loggedUser.name} it's {date}
+                    Welcome, {loggedUser.username}. Click the plus sign above to get started.
                   </h3>
                 </div>
               ) : (
@@ -230,20 +234,17 @@ class UserTimeLine extends Component {
           </div>
           <div className='inputComponents'>
             {this.state.addComponent ? (
-              <div className='components'>
-                <h1>Add to Timeline</h1>
-                <div className='text'>
-                  <TextInput handleTextPost={handleTextPost} />
-                </div>
-                <div className='link'>
-                  <LinkInput handleSubmit={handleSubmit} />
-                </div>
-                <div className="photo">
-                  <PhotoUpload handleSubmit={handleSubmit}/>
-                </div>
-              </div>
+              <ComponentDrawer
+                handleTextPost={handleTextPost}
+                handleSubmit={handleSubmit}
+
+              />
             ) : (
-              <></>
+                <Widgets
+                  loggedUser={loggedUser}
+                  date={date}
+                  handleSubmit={handleSubmit}
+                />
             )}
           </div>
         </div>

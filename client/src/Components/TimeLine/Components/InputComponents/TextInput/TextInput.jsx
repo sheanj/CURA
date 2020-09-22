@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../TextInput/TextInput.css";
+import "./TextInput.css";
 import { FaPlusCircle } from "react-icons/fa";
 
 export default class TextPost extends Component {

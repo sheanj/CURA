@@ -74,13 +74,13 @@ outline: none;
 
 .title {
   height: fit-content;
-  max-height: 3em;
+  height: 3rem;
   position: relative;
   overflow: hidden;
-  width: 94%;
+  width: 93.5%;
   align-self: flex-end;
   bottom: 50px;
-  left: -5.55%;
+  left: -6%;
   background-color: transparent;
   backdrop-filter: blur(5px);
   border-radius: 0 0px 10px 10px;
@@ -92,6 +92,7 @@ outline: none;
   margin: 0;
   padding-top: 5px;
   color: black;
+  font-size: 1rem;
 }
 
 .crud {
