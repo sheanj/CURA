@@ -10,7 +10,7 @@ export default class ComponentDrawer extends Component {
         const {handleTextPost, handleSubmit} = this.props
         return (
           <div className='components'>
-            <h3>ADD TO TIMELINE</h3>
+            {/* <h3>ADD TO TIMELINE</h3> */}
             <div className='text'>
               <TextInput handleTextPost={handleTextPost} />
             </div>

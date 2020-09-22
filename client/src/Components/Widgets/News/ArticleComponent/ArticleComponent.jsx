@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import "./ArticleComponent.css";
 import Axios from "axios";
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default class ArticleComponent extends Component {
   state = {
     title: "",
     description: "",
-    image: "",
+    image: null,
     url: "",
     tags: "",
   };
@@ -45,16 +46,18 @@ export default class ArticleComponent extends Component {
     const { image, title, url } = this.state;
     const { handleSubmit } = this.props;
     return (
+      <>
+        {image == null ? (
+          <ClipLoader
+            size={150}
+            color={"#123abc"}
+            loading={this.state.loading}
+          />
+        ) : (
           <div className='articleCard'>
-            {image ? (
-              <a href={url} target='_blank'>
-                <img src={image} />
-              </a>
-            ) : (
-              <a href={url} target='_blank'>
-                <img src='https://static01.nyt.com/vi-assets/images/share/1200x675_nameplate.png' />
-              </a>
-            )}
+            <a href={url} target='_blank'>
+              <img src={image} />
+            </a>
             <div className='articleHeadline'>
               <h3>{title}</h3>
             </div>
@@ -81,6 +84,8 @@ export default class ArticleComponent extends Component {
               </svg>
             </button>
           </div>
+        )}
+      </>
     );
   }
 }

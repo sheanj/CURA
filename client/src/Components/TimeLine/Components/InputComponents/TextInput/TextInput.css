@@ -3,41 +3,46 @@
   flex-direction: column;
   align-content: center;
   border-radius: 10px;
-  /* border-top: .2px solid grey; */
-  width: 90%;
-  height: 175px;
+  height: 250px;
   margin-left: 20px;
-  /* box-shadow: 0px 10px 10px #888888; */
   background-color: rgba(222, 228, 228, 0.902);
-  /* backdrop-filter: blur(5px); */
-  box-shadow: 20px 20px 60px #bdc2c2, -20px -20px 60px #ffffff;
   border-radius: 50px;
   padding: 10px;
   margin-bottom: 5%;
+  filter: drop-shadow(0px 50px 50px grey);
+  box-shadow: inset 0px 0px 15px #888888;
+  padding-bottom: 10px;
 }
 
-
-
-.noteInput input {
-  width: 87%;
-  overflow: auto;
-  resize: vertical;
+.inputHead h6 {
+  font-size: 1rem;
 }
 
 .textInput input {
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  border-radius: 5px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  height: 1.5rem;
+  margin-bottom: 1%;
+}
+
+.noteInput input {
+  width: 37rem;
+  height: 4rem;
+  overflow: auto;
+  resize: vertical;
+  margin-bottom: 1%;
+}
+
+.noteInput::placeholder{
+  padding-top: 1.5rem;
+}
+
+.textInput input {
   margin-right: 20px;
   margin-left: 20px;
   background-color: transparent;
   margin-top: 8px;
   padding-left: 10px;
-  box-shadow: 0px 1px 2px #888888;
+  border: none;
+border-bottom: 1px solid black;
 }
 
 

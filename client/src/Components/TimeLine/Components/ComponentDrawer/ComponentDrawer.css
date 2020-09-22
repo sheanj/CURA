@@ -1,13 +1,14 @@
 .components {
   width: 95%;
   height: 100%;
-  /* position: relative; */
+  margin-top: 2rem;
 }
 
 .components h3 {
   padding-left: 10px;
   color: grey;
   padding-left: 5%;
+  font-size: 1.5rem;
 }
 
 .text .link {

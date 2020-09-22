@@ -11,6 +11,7 @@ export default class Widgets extends Component {
     const { loggedUser, date, handleSubmit } = this.props;
     return (
       <div className='widgets'>
+        <div className="widgetHeader"><h3>{date}</h3></div>
         <div className='twoSquare'>
           <div className='leftWidget'>
             <ClockWidget />
