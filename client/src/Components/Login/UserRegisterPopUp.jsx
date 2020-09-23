@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import "./UserRegisterPopUp.css";
-import PFP from "../../Assets/PFP.png";
-import api from '../Services/api-helper'
 
 export default class UserRegisterPopUp extends Component {
   state = {
@@ -26,8 +24,8 @@ export default class UserRegisterPopUp extends Component {
       password,
       profilePhoto,
     } = this.state;
-    const { handleRegister, history, handleLogin } = this.props;
-    const { imageHandler, handleChange } = this;
+    const { handleRegister } = this.props;
+    const { handleChange } = this;
     return (
       <div className='register'>
         <div className='registerHeader'></div>
@@ -36,7 +34,8 @@ export default class UserRegisterPopUp extends Component {
             e.preventDefault();
             handleRegister(this.state);
           }}
-        >
+          >
+          <h1>Register</h1>
             <div className='nameRegisterInput'>
               <input
                 className='registerName'
