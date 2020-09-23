@@ -93,14 +93,28 @@
   font-size: 1.25rem;
 }
 
-@media only screen and (max-width: 375px) {
-  .register form {
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+    .register form {
     bottom: 0;
-    top: 15vh;
+    /* top: 14rem; */
     left: 0;
     width: 98vw;
+    height: 100vh;
     border-radius: 20px 20px 0px 0px;
+    z-index: 20;
   }
+
+  .nameRegisterInput {
+  width: 100%;
+}
+
+.nameRegisterInput input {
+  position: relative;
+  left: -1%;
+}
 
   .register input {
     width: 90%;

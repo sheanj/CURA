@@ -48,13 +48,20 @@
   margin: 30px;
 }
 
-@media only screen and (max-width: 375px) {
-  .login form {
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+    .login form {
+      height: 90vh;
+      width: 80vw;
+      top: 0;
     bottom: 0;
-    top: 40vh;
+    /* top: 20rem; */
     left: 0;
-    width: 98vw;
+    width: 96vw;
     border-radius: 20px 20px 0px 0px;
+  z-index: 20;
   }
 
   .login input {

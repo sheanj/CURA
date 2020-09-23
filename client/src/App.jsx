@@ -53,15 +53,33 @@ class App extends Component {
   };
 
   handlePopOver = () => {
-    this.setState({
-      loginPopUp: true,
-    });
+    if (this.state.registerPopUp) {
+      this.setState({
+        registerPopUp: false,
+        loginPopUp: true
+      })
+    } else {
+      this.setState((prevState)=>({
+        loginPopUp: !prevState.loginPopUp,
+      }));
+    }
   };
 
   registerPopOver = () => {
-    this.setState({
-      registerPopUp: true,
-    });
+    if (this.state.loginPopUp) {
+      this.setState({
+        loginPopUp: false, 
+        registerPopUp: true
+      }) 
+      
+      this.setState({
+        loginPopUp: false
+      })
+    } else {
+      this.setState((prevState)=>({
+        registerPopUp: !prevState.registerPopUp,
+      }));
+    }
   };
 
   render() {
