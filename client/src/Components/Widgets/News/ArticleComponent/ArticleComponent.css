@@ -7,14 +7,10 @@
 }
 
 .articleCard {
-    /* position: relative;
-    top: -10%; */
   width: 325px;
   height: 250px;
-  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
-  /* box-shadow: 20px 20px 60px #bdc2c2, -20px -20px 60px #ffffff; */
   border-radius: 25px;
   margin: 2% 0 -2% 3%;
 }
@@ -27,7 +23,6 @@
 }
 
 .articleHeadline {
-    /* border: 1px solid black; */
     height: 70px;
     border-radius: 0px 0px 25px 25px;
     padding-right: 2%;

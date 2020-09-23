@@ -20,19 +20,9 @@
   margin: 1rem 0;
 }
 
-.settings {
-}
-
-.settings button {
-  background-color: transparent;
-  border: none;
-  outline: none;
-}
-
 .twoSquare {
   display: flex;
   flex-direction: row;
-  /* border: 1px solid black; */
   height: fit-content;
   padding: 10px;
 }
@@ -42,7 +32,6 @@
   justify-content: center;
   margin-bottom: 5%;
   max-width: 650px;
-  /* border: 1px solid red; */
 }
 
 .leftWidget,

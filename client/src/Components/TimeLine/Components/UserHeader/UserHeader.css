@@ -44,7 +44,6 @@
 }
 
 .userPhoto img {
-  /* border: 1px solid black;  */
   height: 50px;
   width: 50px;
   border-radius: 25px;
@@ -53,7 +52,6 @@
 
 .profilePhotoUpload {
   position: relative;
-  /* border: 1px solid black; */
   height: 50px;
   width: 50px;
   border-radius: 50px;

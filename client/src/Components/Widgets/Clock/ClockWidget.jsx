@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./ClockWidget.css";
-import {setClock} from "./ClockWidget.js";
 
 export default class ClockWidget extends Component {
   state = {
@@ -41,10 +40,6 @@ export default class ClockWidget extends Component {
       this.updateClock();
     }, 1000);
   }
-
-//   componentWillUnmount() {
-//     clearInterval(timeInterval);
-//   }
 
   render() {
     const { setClock } = this;

@@ -73,7 +73,6 @@
 .note {
   height: fit-content;
   position: relative;
-  /* border: 1px solid black; */
   width: 93%;
   align-self: flex-end;
   bottom: 50px;
