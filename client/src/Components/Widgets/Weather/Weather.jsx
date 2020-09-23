@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Weather.css";
 import axios from "axios";
-import { FaZhihu } from "react-icons/fa";
 
 export default class Weather extends Component {
   constructor() {

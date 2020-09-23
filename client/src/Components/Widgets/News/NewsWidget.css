@@ -3,14 +3,12 @@
     flex-direction: column;
     height: inherit;
     width: 95%;
-    /* height: inherit; */
     box-shadow: 20px 20px 60px #bdc2c2, -20px -20px 60px #ffffff;
     border-radius: 50px;
 }
 
 .newsHeader {
     margin-left: 25px;
-
 }
 
 .newsHeader h3 {

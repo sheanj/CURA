@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./CalendarWidget.css";
-// import { FaAngleLeft } from "font-awesome";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 export default class CalendarWidget extends Component {
@@ -66,7 +65,6 @@ export default class CalendarWidget extends Component {
       currentDays: days
     })
   }
-
 
   //write change functions using setMonth()
 

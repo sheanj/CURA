@@ -4,12 +4,7 @@ import PFP from "../../../../Assets/PFP.png";
 import ComponentDrawer from "../ComponentDrawer/ComponentDrawer";
 
 export default class UserHeader extends Component {
-  state = {
-    // addComponent: false,
-  };
-
-
-  render() {
+ render() {
     const { addComponent, loggedUser } = this.props;
     return (
       <div className='header'>

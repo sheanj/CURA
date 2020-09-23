@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./UserTimeLine.css";
 import { withRouter } from "react-router-dom";
-import { timeline } from "../../Services/timeline";
+import { timeline, displayDate } from "../../Services/timeline";
 import {
   postLink,
   deleteLinkPost,
@@ -14,12 +14,8 @@ import {
 } from "../../Services/textpost.js";
 
 import UserHeader from '../UserHeader/UserHeader.jsx'
-import TextInput from "../Components/InputComponents/TextInput/TextInput";
-import LinkInput from "../Components/InputComponents/LinkInput/LinkInput";
 import LinkPost from "../RenderComponent/Link/LinkPost";
 import TextPost from "../RenderComponent/Text/TextPost";
-import PhotoUpload from "../Components/InputComponents/PhotoUpload/PhotoUpload.jsx";
-import { processFile } from "../../Services/photoupload";
 import Widgets from "../../Widgets/Widgets";
 import ComponentDrawer from "../Components/ComponentDrawer/ComponentDrawer";
 
@@ -44,18 +40,18 @@ class UserTimeLine extends Component {
       });
       this.fetchTimeline();
     }
-    this.displayDate();
+    this.setState({ date: displayDate()});
+
   };
 
   componentDidUpdate = async (prevProps) => {
     if (prevProps.loggedUser !== this.props.loggedUser) {
-      let stateUpdate = await timeline();
-      this.setState({
-        timeline: stateUpdate
-      })
-    } else {
-      // console.log('error')
-    }
+      this.fetchTimeline();
+      // let stateUpdate = await timeline();
+      // this.setState({
+      //   timeline: stateUpdate
+      // })
+    } 
   };
 
   fetchTimeline = async () => {
@@ -125,51 +121,6 @@ class UserTimeLine extends Component {
     this.setState((prevState) => ({
       editComponent: false,
     }));
-  };
-
-  displayDate = () => {
-    let d = new Date(),
-      minutes =
-        d.getMinutes().toString().length === 1
-          ? "0" + d.getMinutes()
-          : d.getMinutes(),
-      hours =
-        d.getHours().toString().length === 1
-          ? "0" + d.getHours()
-          : d.getHours(),
-      ampm = d.getHours() >= 12 ? "PM" : "AM",
-      months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ],
-      days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ];
-    let date =
-      days[d.getDay()] +
-      " " +
-      months[d.getMonth()] +
-      " " +
-      d.getDate() +
-      ", " +
-      d.getFullYear()
-    this.setState({ date });
   };
 
   render() {
