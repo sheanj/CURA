@@ -13,13 +13,15 @@ export default class TextPost extends Component {
   };
 
   linkMetadata = async (e) => {
+    let key = process.env.REACT_APP_LINK_INPUT_API_TOKEN
     const metadata = await Axios.get(
-      `https://api.linkpreview.net/?key=61a96cdca666e25e6b9937fffa190c2d&q=${e.target.value}`
+      `https://api.linkpreview.net/?key=${key}&q=${e.target.value}`
     );
     const response = metadata.data;
     this.setState(prevState => ({
       ...response
     }))
+    console.log(this.state.image)
     console.log(response)
   };
 
