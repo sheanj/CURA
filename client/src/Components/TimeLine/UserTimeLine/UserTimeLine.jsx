@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "./UserTimeLine.css";
 import { withRouter } from "react-router-dom";
-import { timeline, displayDate } from "../../Services/timeline";
+import {
+  timeline,
+  displayDate
+} from "../../Services/timeline";
 import {
   postLink,
   deleteLinkPost,
@@ -151,7 +154,7 @@ class UserTimeLine extends Component {
               {this.props.loggedUser && !timeline[0]  ? (
                 <div className='welcome'>
                   <h3>
-                    Welcome, {loggedUser.username}. Click the plus sign above to get started.
+                    Welcome, {username}. Click the plus sign above to get started.
                   </h3>
                 </div>
               ) : (

@@ -59,7 +59,11 @@ export default class CalendarWidget extends Component {
       days.push(`${i}`);
     }
     for (let j = 1; j < nextDays; j++) {
-      days.push(`${j}`);
+      if (days.length >= 35) {
+        console.log('complete')
+      } else {
+        days.push(`${j}`);
+      }
     }
     this.setState({
       currentDays: days

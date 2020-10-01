@@ -33,7 +33,7 @@ export default class UserHeader extends Component {
               data-name='Path 1'
               d='M18,34A16,16,0,1,0,2,18,16,16,0,0,0,18,34ZM16.4,11.6a1.6,1.6,0,1,1,3.2,0v4.8h4.8a1.6,1.6,0,1,1,0,3.2H19.6v4.8a1.6,1.6,0,1,1-3.2,0V19.6H11.6a1.6,1.6,0,1,1,0-3.2h4.8Z'
               transform='translate(-2 -2)'
-              fill-rule='evenodd'
+              fillRule='evenodd'
             />
           </svg>
         </button>
