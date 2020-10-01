@@ -21,8 +21,6 @@ export default class TextPost extends Component {
     this.setState(prevState => ({
       ...response
     }))
-    console.log(this.state.image)
-    console.log(response)
   };
 
   handleChange = (e) => {
