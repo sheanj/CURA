@@ -1,4 +1,5 @@
 ![Dummy Link](./client/src/Assets/Logo/LogoMedium.png)
+<br>
 [View the deployed application here](https://cura-app.netlify.app/)
 
 ***
