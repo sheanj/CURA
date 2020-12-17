@@ -8,7 +8,7 @@ import CalendarWidget from "../Widgets/Calendar/CalendarWidget";
 import Weather from "../Widgets/Weather/Weather";
 import TimeLinePreview from '../../Assets/Landing/TimeLinePreview.png'
 
-class Landing extends Component {
+export class Landing extends Component {
   state = {
     windowHeight: '',
     loginComponent: false
@@ -89,7 +89,8 @@ class Landing extends Component {
         ) : (
           <></>
         )}
-      </div>
+        </div>
+    
     );
   }
 }

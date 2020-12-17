@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Header from "../AppHeader/Header";
 import Landing from "../Landing/Landing";
@@ -15,7 +15,7 @@ export default class Main extends Component {
       registerPopOver,
       registerPopUp,
       loggedUser,
-      username
+      username,
     } = this.props;
     return (
       <div className="main">
@@ -27,6 +27,7 @@ export default class Main extends Component {
           handleRegister={handleRegister}
           registerPopOver={registerPopOver}
         />
+        <Switch>
         <Route
           exact
           path="/"
@@ -53,7 +54,8 @@ export default class Main extends Component {
               username={username}
             />
           )}
-        />
+          />
+          </Switch>
       </div>
     );
   }

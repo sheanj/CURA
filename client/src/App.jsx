@@ -1,5 +1,7 @@
+//@flow
+
 import React, { Component } from "react";
-import { withRouter, Route } from "react-router-dom";
+import { withRouter, Route, Router } from "react-router-dom";
 import "./App.css";
 
 import {
@@ -11,7 +13,7 @@ import {
 
 import Main from "./Components/Main/Main";
 
-class App extends Component {
+export class App extends Component {
   state = {
     loggedUser: [],
     loginPopUp: false,
@@ -103,7 +105,7 @@ class App extends Component {
             />
           )}
         />
-      </div>
+        </div>
     );
   }
 }
