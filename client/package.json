@@ -10,7 +10,7 @@
     "axios": "^0.19.2",
     "elliptic": "^6.5.3",
     "font-awesome": "^4.7.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "react": "^16.13.1",
     "react-clock": "^3.0.0",
     "react-dom": "^16.13.1",
